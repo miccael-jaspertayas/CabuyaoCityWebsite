@@ -15,6 +15,15 @@ namespace CabuyaoCityWebsite
     {
 
         /// <summary>
+        /// HeadContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
+
+        /// <summary>
         /// logo control.
         /// </summary>
         /// <remarks>
@@ -24,6 +33,24 @@ namespace CabuyaoCityWebsite
         protected global::System.Web.UI.WebControls.Image logo;
 
         /// <summary>
+        /// sidebarLogo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image sidebarLogo;
+
+        /// <summary>
+        /// HeroContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeroContent;
+
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>
@@ -31,5 +58,14 @@ namespace CabuyaoCityWebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+
+        /// <summary>
+        /// imgCabuyao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgCabuyao;
     }
 }

@@ -1,0 +1,111 @@
+﻿/* --- HERO SECTION --- */
+.contact-hero {
+    background: linear-gradient(rgba(0, 77, 0, 0.85), rgba(0, 77, 0, 0.85)), url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwdKTIYbwS56DieYPNjeP2zK63mcIcbHmOywWDbtMdOMkXKJMzZv_zgK5LRI98W8qcXdZ4X-n0hZcH2xMvoDmfDoiqfmtNm-yF4iqDB6piv-tMRw3-D4QUp1nhHOHUDD3o6PmcuB5ePVo/s2046/St+Polycarp+Church+or+the+Old+Cabuyao+Church.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;
+}
+
+/* --- SECTION HEADERS (Matches About.css) --- */
+.section-title {
+    color: var(--cabuyao-green, #006600); /* Fallback to standard green if variable fails */
+    border-bottom: 2px solid var(--cabuyao-gold, #D4AF37);
+    padding-bottom: 10px;
+    font-weight: 700;
+}
+
+/* --- DIRECTORY SECTION --- */
+.trunk-line-box {
+    background-color: var(--cabuyao-gold, #D4AF37);
+    border-radius: 4px;
+}
+
+/* Directory Tabs Styling */
+.directory-tabs .nav-link {
+    background-color: var(--cabuyao-green, #107c41);
+    color: white;
+    border-radius: 0;
+    font-weight: bold;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+}
+
+    .directory-tabs .nav-link:hover {
+        background-color: #0b592e; /* Darker green on hover */
+        color: white;
+    }
+
+    .directory-tabs .nav-link.active {
+        background-color: #084021 !important; /* Even darker green for active state */
+        box-shadow: inset 0 3px 5px rgba(0,0,0,0.2);
+    }
+
+.min-vh-50 {
+    min-height: 50vh;
+}
+
+.table-head {
+    color: white;
+    background-color: var(--cabuyao-green);
+}
+
+.table {
+    table-layout: fixed; /* force equal column widths */
+    width: 100%; /* stretch across container */
+}
+
+.table th:first-child,
+.table td:first-child {
+    width: 60%; /* Department/Office column */
+}
+
+.table th:last-child,
+.table td:last-child {
+    width: 40%; /* Contact Number column */
+}
+
+
+/* --- CONTACT FORM SECTION --- */
+.custom-input {
+    width: 100% !important;
+    max-width: none !important; /* Add this line to remove the ceiling */
+    box-sizing: border-box;
+    background-color: #f2f2f2 !important;
+    border: none !important;
+    border-radius: 4px;
+    padding: 15px;
+    box-shadow: none !important;
+    display: block; /* Ensures it behaves as a full-width block element */
+}
+
+    .custom-input::placeholder {
+        color: #6c757d;
+    }
+
+    .custom-input:focus {
+        background-color: #f2f2f2 !important;
+        outline: none;
+    }
+
+.custom-checkbox {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.custom-checkbox:checked {
+    background-color: var(--cabuyao-gold);
+    border-color: var(--cabuyao-gold);
+}
+
+
+.custom-submit-btn {
+    background-color: var(--cabuyao-green);
+    border: none;
+    font-weight: bold;
+    padding: 12px 60px;
+    transition: background-color 0.3s;
+}
+
+    .custom-submit-btn:hover {
+        background-color: #0b592e;
+    }
