@@ -1,0 +1,134 @@
+﻿/* --- HERO SECTION --- */
+.about-hero {
+    background: linear-gradient(rgba(0, 77, 0, 0.85), rgba(0, 77, 0, 0.85)), url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwdKTIYbwS56DieYPNjeP2zK63mcIcbHmOywWDbtMdOMkXKJMzZv_zgK5LRI98W8qcXdZ4X-n0hZcH2xMvoDmfDoiqfmtNm-yF4iqDB6piv-tMRw3-D4QUp1nhHOHUDD3o6PmcuB5ePVo/s2046/St+Polycarp+Church+or+the+Old+Cabuyao+Church.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;
+}
+
+/* --- SECTION HEADERS --- */
+.section-title {
+    color: var(--cabuyao-green);
+    border-bottom: 3px solid var(--cabuyao-gold);
+    padding-bottom: 10px;
+    font-weight: 700;
+}
+
+/* --- MISSION/VISION CARDS --- */
+.mv-card {
+    background: #f9f9f9;
+    padding: 25px;
+    border-left: 5px solid var(--cabuyao-green);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+    .mv-card:hover {
+        border-left-color: var(--cabuyao-gold);
+        transform: scale(1.03);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+.mv-title {
+    color: var(--cabuyao-green) !important;
+    position: relative;
+    display: inline-block; /* keeps underline tight to text */
+}
+
+    .mv-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px; /* adjust spacing below text */
+        width: 60px;
+        height: 3px;
+        background-color: var(--cabuyao-gold);
+        transition: width 0.3s ease; /* animate the line */
+    }
+
+/* When the card is hovered, animate the underline on the title */
+.mv-card:hover .mv-title::after {
+    width: 100%; /* expands smoothly across the text */
+}
+
+/* --- ACCORDION (HISTORY) STYLING --- */
+.accordion-item.history-era {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb !important;
+    border-left: 4px solid var(--cabuyao-green) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+    overflow: hidden; /* Keeps border-radius clean */
+}
+
+    /* Dynamically changes left border/shadow when the accordion is open */
+    .accordion-item.history-era:has(.accordion-button:not(.collapsed)) {
+        border-left-color: var(--cabuyao-gold) !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    /* Button (Summary) Styling */
+    .accordion-item.history-era .accordion-button {
+        color: var(--cabuyao-green);
+        font-size: 1.15rem;
+        background-color: transparent;
+        box-shadow: none; /* Removes Bootstrap blue focus ring */
+        padding: 15px 20px;
+    }
+
+        .accordion-item.history-era .accordion-button:not(.collapsed) {
+            color: var(--cabuyao-gold);
+        }
+
+        /* Custom Dropdown Arrow */
+        .accordion-item.history-era .accordion-button::after {
+            background-image: none; /* Removes default Bootstrap SVG arrow */
+            content: '\25BC'; /* Down arrow unicode */
+            font-size: 0.9rem;
+            color: var(--cabuyao-green);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.history-era .accordion-button:not(.collapsed)::after {
+            transform: rotate(-180deg);
+            color: var(--cabuyao-gold);
+        }
+
+    /* Inner Text Styling */
+    .accordion-item.history-era .accordion-body {
+        padding: 15px 20px;
+        border-top: 1px dashed #e5e7eb;
+    }
+
+/* --- HOVER CARDS (Barangays & Departments) --- */
+.hover-card {
+    border-top: 4px solid var(--cabuyao-green) !important;
+    transition: transform 0.2s, box-shadow 0.2s;
+    /* cursor: pointer;  Removed since only the button is clickable now */
+}
+
+    .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.15) !important;
+        border-top-color: var(--cabuyao-gold) !important;
+    }
+
+    .hover-card:hover .btn-cabuyao-outline {
+        border-color: var(--cabuyao-gold);
+        color: var(--cabuyao-gold);
+    }
+
+/* --- BARANGAY VIEW DETAILS BUTTON --- */
+.btn-cabuyao-outline {
+    color: var(--cabuyao-green);
+    border: 1px solid var(--cabuyao-green);
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+    .btn-cabuyao-outline:hover, .btn-cabuyao-outline:focus {
+        background-color: var(--cabuyao-gold);
+        color: #ffffff !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }

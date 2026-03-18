@@ -19,3 +19,272 @@ textarea {
         padding: 0;
     }
 }
+
+html {
+    scroll-padding-top: 100px; 
+}
+
+
+/* =========================================================
+   CABUYAO CITY WEBSITE - MASTER STYLES
+   ========================================================= */
+
+:root {
+    /* Brand Colors */
+    --cabuyao-green: #0a801f;
+    --cabuyao-dark-green: #004d00;
+    --cabuyao-gold: #D4AF37;
+    --bg-light: #f9fafb;
+    --text-dark: #1f2937;
+    --text-light: #f9fafb;
+    --text-muted: #d1d5db;
+}
+
+/* Background & Text Utility Classes */
+.bg-cabuyao-green {
+    background-color: var(--cabuyao-green) !important;
+    border-bottom: 6px solid var(--cabuyao-gold) !important;
+    -moz-box-shadow: inherit;
+    -webkit-box-shadow: inherit;
+    box-shadow: inherit;
+}
+
+.text-cabuyao-gold {
+    color: var(--cabuyao-gold) !important;
+}
+
+/* =========================================
+   NAVBAR & DROPDOWN LOGIC
+   ========================================= */
+.navbar-nav .nav-item {
+    margin: 0 8px;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    color: white !important;
+    font-weight: 500;
+    display: inline-flex !important;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+    /* Gold Button Hover Style */
+    .navbar-nav .nav-link {
+        transition: all 0.3s ease;
+
+        margin: 0 4px; /* Adds a little spacing between the "buttons" */
+    }
+
+/* =========================================
+   NAVBAR SCROLL TRANSITION
+   ========================================= */
+#mainNavbar {
+    /* Smooth transition for background, border, and shadow */
+    transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    background-color: transparent;
+    border-bottom: 6px solid transparent;
+}
+
+/* Class added via JavaScript when scrolled */
+#mainNavbar.navbar-scrolled {
+    background-color: var(--cabuyao-green) !important;
+    border-bottom: 6px solid var(--cabuyao-gold) !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important; /* Re-adds the shadow-sm */
+}
+
+/* Show Dropdown on Hover (Large Screens) */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover > .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Hover State */
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .dropdown:hover > .nav-link {
+        background-color: var(--cabuyao-gold);
+    }
+}
+
+.dropdown-menu {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--cabuyao-gold) !important;
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown-item {
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: all 0.2s ease;
+}
+
+    .dropdown-item:hover {
+        background-color: #f8f9fa;
+        color: var(--cabuyao-green);
+        padding-left: 25px; /* Slide effect */
+    }
+
+/* Keeps the caret arrow right of text */
+.dropdown-toggle::after {
+    margin-left: 8px !important;
+    vertical-align: middle !important;
+}
+
+/* =========================================
+   GOOGLE MAP STYLES
+   ========================================= */
+
+.full-width-map {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* Removes any line-height spacing inherited from the body */
+    line-height: 0;
+}
+
+    .full-width-map iframe {
+        width: 100% !important;
+        height: 500px; /* You can adjust the height here */
+        border-top: 6px solid var(--cabuyao-gold) !important;
+        /* This is the most important part to remove the gap above the footer! 
+       Iframes are inline elements by default, which leaves a gap for text descenders. */
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+/* =========================================
+   FOOTER STYLES
+   ========================================= */
+.site-footer {
+    border-top: 6px solid var(--cabuyao-gold);
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.footer-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    border: 3px solid var(--cabuyao-gold) !important;
+}
+
+/* Footer Link Hover Animations */
+.footer-list a {
+    transition: letter-spacing 0.3s ease, color 0.3s ease;
+}
+
+    .footer-list a:hover {
+        color: white !important;
+        letter-spacing: 1px;
+    }
+
+    .footer-list a i {
+        transition: transform 0.3s ease;
+    }
+
+    .footer-list a:hover i {
+        transform: translateX(3px);
+    }
+
+/* Social Media Circles */
+.social-circle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+    .social-circle:hover {
+        background-color: var(--cabuyao-gold);
+        color: var(--cabuyao-dark-green);
+        transform: translateY(-5px);
+    }
+
+/* Footer Bottom Strip */
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 767.98px) {
+    /* 1. Center standard text inside the footer columns */
+    .site-footer [class*="col-"] {
+        text-align: center;
+    }
+
+    /* 2. Stack and center the Logo and City Title */
+    .site-footer .col-lg-5 .d-flex.align-items-center {
+        justify-content: center;
+        flex-direction: column; /* Stacks logo above text for a simpler, flatter look */
+        text-align: center;
+    }
+
+    /* 3. Center the descriptive paragraph (Overrides your inline max-width) */
+    .site-footer p[style*="max-width"] {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* 4. Center the Contact Info list items */
+    .site-footer .footer-list li.d-flex {
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+    }
+
+    .site-footer .footer-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* center the whole list block */
+    }
+
+    .site-footer .footer-list li.d-flex span {
+        max-width: 300px; /* adjust to your preferred width */
+        word-wrap: break-word;
+        white-space: normal; /* allow wrapping */
+        text-align: center; /* keeps text aligned nicely */
+    }
+
+    /* 5. Center the Social Media Icons */
+    .site-footer .d-flex.gap-3 {
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   MOBILE SIDEBAR LOGIC (Offcanvas)
+   ========================================= */
+#mobileSidebar {
+    max-width: 70vw;
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-nav .nav-link {
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 8px;
+}
+
+    .mobile-nav .nav-link:hover,
+    .mobile-nav .nav-link:focus,
+    .mobile-nav .collapse a:hover {
+        color: var(--cabuyao-gold) !important;
+    }
+
+/* Brighten sub-links when tapped */
+.mobile-nav .collapse a:hover {
+    opacity: 1 !important;
+}

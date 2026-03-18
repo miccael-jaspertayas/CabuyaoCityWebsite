@@ -120,12 +120,16 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Master\cabuyao-logo.png" />
     <Content Include="Images\Master\header-logo.png" />
+    <Content Include="Images\Officials\official-placeholder.png" />
     <Content Include="Pages\About.aspx" />
     <Content Include="Pages\Contact.aspx" />
     <Content Include="Pages\Gallery.aspx" />
     <Content Include="Pages\Home.aspx" />
+    <Content Include="Pages\NewsAnnouncement.aspx" />
     <Content Include="Pages\Officials.aspx" />
+    <Content Include="Pages\ViewBrgyDetails.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -182,10 +186,15 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Styles\About.css" />
+    <Content Include="Styles\Contact.css" />
+    <Content Include="Styles\Gallery.css" />
+    <Content Include="Styles\Home.css" />
+    <Content Include="Styles\NewsAnnouncement.css" />
+    <Content Include="Styles\Officials.css" />
+    <Content Include="Styles\ViewBrgyDetails.css" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
-    <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -235,12 +244,26 @@
     <Compile Include="Pages\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\NewsAnnouncement.aspx.cs">
+      <DependentUpon>NewsAnnouncement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\NewsAnnouncement.aspx.designer.cs">
+      <DependentUpon>NewsAnnouncement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Officials.aspx.cs">
       <DependentUpon>Officials.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Officials.aspx.designer.cs">
       <DependentUpon>Officials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ViewBrgyDetails.aspx.cs">
+      <DependentUpon>ViewBrgyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ViewBrgyDetails.aspx.designer.cs">
+      <DependentUpon>ViewBrgyDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -250,20 +273,6 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Site.Mobile.Master.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.designer.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-    </Compile>
-    <Compile Include="ViewSwitcher.ascx.cs">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewSwitcher.ascx.designer.cs">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -271,7 +280,6 @@
     <Folder Include="Images\Contact\" />
     <Folder Include="Images\Gallery\" />
     <Folder Include="Images\Home\" />
-    <Folder Include="Images\Officials\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

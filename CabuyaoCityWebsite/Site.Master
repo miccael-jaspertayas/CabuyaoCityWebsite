@@ -6,22 +6,25 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title>City Government of Cabuyao</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <link href='<%: ResolveUrl("~/favicon.ico") %>' rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
 
 </head>
 <body>
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
@@ -33,42 +36,205 @@
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color: #0a801f">
+        <%--MAIN NAVIGATON BAR--%>
+        <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark py-2 fixed-top">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~/Pages/Home">
+                <a class="navbar-brand mx-auto py-1" runat="server" href="~/Pages/Home">
                     <asp:Image ID="logo" runat="server" ImageUrl="~/Images/Master/header-logo.png" Width="160px" AlternateText="Logo" />
                 </a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+
+                <button type="button" class="navbar-toggler border-0 shadow-none" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar" title="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <div class="collapse navbar-collapse d-lg-inline-flex justify-content-between">
+                    <ul class="navbar-nav ms-auto"> 
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/Home">Home</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/Officials">Officials</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/Gallery">City Gallery</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/About">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/Contact">Contact Us</a></li>
+ 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" runat="server" href="~/Pages/About" role="button">About Us</a>
+                            <ul class="dropdown-menu border-0 shadow">
+                                <li><a class="dropdown-item" runat="server" href="~/Pages/About#mission-vision">Mission and Vision</a></li>
+                                <li><a class="dropdown-item" runat="server" href="~/Pages/About#history">Historical Background</a></li>
+                                <li><a class="dropdown-item" runat="server" href="~/Pages/About#geographical-info">Geography</a></li>
+                                <li><a class="dropdown-item" runat="server" href="~/Pages/About#barangays">Barangays</a></li>
+                                <li><a class="dropdown-item" runat="server" href="~/Pages/About#departments">Departments</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" runat="server" href="~/Pages/Contact" role="button">Contact Us</a>
+                            <ul class="dropdown-menu border-0 shadow">
+                                <li><a class="dropdown-item" runat="server" href="~/Pages/Contact#City-Directory">City Directory</a></li>
+                                <li><a class="dropdown-item" runat="server" href="~/Pages/Contact#Send-Message">Send us a Message</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="container body-content">
+
+        <%--SIDE NAVIGATOIN BAR--%>
+        <div class="offcanvas offcanvas-start bg-cabuyao-green text-white" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+            <div class="offcanvas-header border-bottom" style="border-color: var(--cabuyao-gold) !important; border-width: 4px !important;">
+                <div class="d-flex align-items-center gap-1">
+                    <asp:Image ID="sidebarLogo" runat="server" ImageUrl="~/Images/Master/cabuyao-logo.png" Width="60px" AlternateText="Cabuyao Logo" CssClass="p-1" />
+                    <h5 class="offcanvas-title fw-bold mb-0" id="mobileSidebarLabel">Navigation</h5>
+                </div>
+                <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            
+            <div class="offcanvas-body px-0 py-2">
+                <ul class="navbar-nav w-100 flex-column mobile-nav">
+                    <li class="nav-item px-3 border-bottom border-white border-opacity-10">
+                        <a class="nav-link text-white py-3 fs-6" runat="server" href="~/Pages/Home"><i class="fas fa-home me-3 text-cabuyao-gold text-center" style="width:25px;"></i>Home</a>
+                    </li>
+                    <li class="nav-item px-3 border-bottom border-white border-opacity-10">
+                        <a class="nav-link text-white py-3 fs-6" runat="server" href="~/Pages/Officials"><i class="fas fa-users me-3 text-cabuyao-gold text-center" style="width:25px;"></i>Officials</a>
+                    </li>
+                    <li class="nav-item px-3 border-bottom border-white border-opacity-10">
+                        <a class="nav-link text-white py-3 fs-6" runat="server" href="~/Pages/Gallery"><i class="fas fa-images me-3 text-cabuyao-gold text-center" style="width:25px;"></i>City Gallery</a>
+                    </li>
+                    
+                    <li class="nav-item px-3 border-bottom border-white border-opacity-10">
+                        <a class="nav-link text-white py-3 fs-6 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#aboutCollapse" role="button" aria-expanded="false" aria-controls="aboutCollapse">
+                            <span><i class="fas fa-info-circle me-3 text-cabuyao-gold text-center" style="width:25px;"></i>About Us&nbsp;</span>
+                            <i class="fas fa-chevron-down small"></i>
+                        </a>
+                        <div class="collapse" id="aboutCollapse">
+                            <ul class="list-unstyled ms-5 pb-3">
+                                <li class="mb-2"><a class="text-white text-decoration-none d-block py-2 opacity-75" runat="server" href="~/Pages/About#mission-vision">Mission & Vision</a></li>
+                                <li class="mb-2"><a class="text-white text-decoration-none d-block py-2 opacity-75" runat="server" href="~/Pages/About#history">Historical Background</a></li>
+                                <li class="mb-2"><a class="text-white text-decoration-none d-block py-2 opacity-75" runat="server" href="~/Pages/About#geographical-info">Geography</a></li>
+                                <li class="mb-2"><a class="text-white text-decoration-none d-block py-2 opacity-75" runat="server" href="~/Pages/About#barangays">Barangays</a></li>
+                                <li class="mb-2"><a class="text-white text-decoration-none d-block py-2 opacity-75" runat="server" href="~/Pages/About#departments">Departments</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item px-3 border-bottom border-white border-opacity-10">
+                        <a class="nav-link text-white py-3 fs-6 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#contactCollapse" role="button" aria-expanded="false" aria-controls="contactCollapse">
+                            <span><i class="fas fa-address-book me-3 text-cabuyao-gold text-center" style="width:25px;"></i>Contact Us&nbsp;</span>
+                            <i class="fas fa-chevron-down small"></i>
+                        </a>
+                        <div class="collapse" id="contactCollapse">
+                            <ul class="list-unstyled ms-5 pb-3">
+                                <li class="mb-2"><a class="text-white text-decoration-none d-block py-2 opacity-75" runat="server" href="~/Pages/Contact#Directory">City Directory</a></li>
+                                <li class="mb-2"><a class="text-white text-decoration-none d-block py-2 opacity-75" runat="server" href="~/Pages/Contact#Message">Send us a Message</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <%--HERO CONTENT--%>
+        <asp:ContentPlaceHolder ID="HeroContent" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <%--MAIN CONTENT--%>
+        <div class="container body-content py-4">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <a runat="server" href="~/Pages/Home">&copy; <%: DateTime.Now.Year %> - City Government of Cabuyao</a>
-                <p>All Rights Reserved.</p>
-            </footer>
         </div>
+
+        <%--GOOGLE MAP--%>
+        <div class="full-width-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15466.741160421927!2d121.11404124588152!3d14.271566778825223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d8628fb69d4b%3A0x1b912a86af127ae7!2sCabuyao%20City%20Hall!5e0!3m2!1sen!2sph!4v1773753922422!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+         <%--FOOTER--%>
+        <footer class="bg-cabuyao-green text-light pt-5 site-footer">
+            <div class="container">
+                <div class="row gy-5 pb-4">
+                    
+                    <div class="col-lg-5 col-md-12">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <asp:Image ID="imgCabuyao" runat="server" ImageUrl="~/Images/Master/cabuyao-logo.png" AlternateText="Cabuyao City Logo" CssClass="footer-logo bg-white rounded-circle" />
+                            <h3 class="text-cabuyao-gold fw-bold text-uppercase mb-0 lh-sm fs-4">
+                                City of Cabuyao<br><span class="fs-6 fw-normal text-white text-capitalize">Republic of the Philippines</span>
+                            </h3>
+                        </div>
+                        <p class="text-light mb-3" style="max-width: 450px; font-size: 0.95rem;">
+                            Cabuyao, officially known as the City of Cabuyao, is a 1st class component city in the province of Laguna, Philippines. 
+                        </p>
+                        <p class="text-cabuyao-gold fw-bold mb-0">
+                            The Enterprise City of the Philippines
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="text-white fw-bold mb-4">Get In Touch</h5>
+                        <ul class="list-unstyled footer-list mb-4">
+                            <li class="d-flex align-items-start gap-2 mb-3 text-light" style="font-size: 0.9rem;">
+                                <i class="fas fa-map-marker-alt text-cabuyao-gold mt-1" style="width: 20px;"></i>
+                                <span>Cabuyao City Hall, F.B. Bailon Street, Brgy. Sala, City of Cabuyao, Laguna, 4025</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2 mb-3 text-light" style="font-size: 0.9rem;">
+                                <i class="fas fa-phone-alt text-cabuyao-gold" style="width: 20px;"></i>
+                                <span>(049) 554-9780 LOC. 303</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2 mb-3 text-light" style="font-size: 0.9rem;">
+                                <i class="fas fa-envelope text-cabuyao-gold" style="width: 20px;"></i>
+                                <span>info@cabuyaocity.gov.ph</span>
+                            </li>
+                        </ul>
+
+                        <h5 class="text-white fw-bold mb-3">Follow Us</h5>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="social-circle" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="social-circle" title="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#" class="social-circle" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-circle" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white fw-bold mb-4">Government Links</h5>
+                        <ul class="list-unstyled footer-list">
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none transition-all"><i class="fas fa-chevron-right text-cabuyao-gold small me-2"></i> Office of the President</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none transition-all"><i class="fas fa-chevron-right text-cabuyao-gold small me-2"></i> Office of the Vice President</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none transition-all"><i class="fas fa-chevron-right text-cabuyao-gold small me-2"></i> Senate of the Philippines</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none transition-all"><i class="fas fa-chevron-right text-cabuyao-gold small me-2"></i> House of Representatives</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none transition-all"><i class="fas fa-chevron-right text-cabuyao-gold small me-2"></i> Supreme Court</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none transition-all"><i class="fas fa-chevron-right text-cabuyao-gold small me-2"></i> Court of Appeals</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none transition-all"><i class="fas fa-chevron-right text-cabuyao-gold small me-2"></i> Sandiganbayan</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center py-3 footer-bottom">
+                <p class="mb-0 small text-light">
+                    <a href="#" class="text-light text-decoration-none">&copy; 2026 City Government of Cabuyao</a> | All Rights Reserved.
+                </p>
+            </div>
+        </footer>
     </form>
+
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navbar = document.getElementById("mainNavbar");
+
+            window.addEventListener("scroll", function () {
+                // If the user scrolls down more than 125px, add the solid background
+                if (window.scrollY > 50) {
+                    navbar.classList.add("navbar-scrolled");
+                } else {
+                    // Otherwise, remove it so it goes back to transparent
+                    navbar.classList.remove("navbar-scrolled");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
