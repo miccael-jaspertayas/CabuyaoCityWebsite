@@ -1,1 +1,8 @@
-﻿
+﻿.gallery-hero {
+    background: linear-gradient(rgba(0, 77, 0, 0.85), rgba(0, 77, 0, 0.85)), url('../images/master/default-bg.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;
+}
+
+/* @Josh, dito mo ilagay yung mga styles para sa gallery page. */

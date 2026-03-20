@@ -1,14 +1,14 @@
 ﻿/* --- HERO SECTION --- */
 .contact-hero {
-    background: linear-gradient(rgba(0, 77, 0, 0.85), rgba(0, 77, 0, 0.85)), url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwdKTIYbwS56DieYPNjeP2zK63mcIcbHmOywWDbtMdOMkXKJMzZv_zgK5LRI98W8qcXdZ4X-n0hZcH2xMvoDmfDoiqfmtNm-yF4iqDB6piv-tMRw3-D4QUp1nhHOHUDD3o6PmcuB5ePVo/s2046/St+Polycarp+Church+or+the+Old+Cabuyao+Church.jpg');
+    background: linear-gradient(rgba(0, 77, 0, 0.85), rgba(0, 77, 0, 0.85)), url('../images/master/default-bg.png');
     background-size: cover;
     background-position: center;
     min-height: 350px;
 }
 
-/* --- SECTION HEADERS (Matches About.css) --- */
+/* --- SECTION HEADERS --- */
 .section-title {
-    color: var(--cabuyao-green, #006600); /* Fallback to standard green if variable fails */
+    color: var(--cabuyao-green, #006600);
     border-bottom: 2px solid var(--cabuyao-gold, #D4AF37);
     padding-bottom: 10px;
     font-weight: 700;
@@ -31,12 +31,12 @@
 }
 
     .directory-tabs .nav-link:hover {
-        background-color: #0b592e; /* Darker green on hover */
+        background-color: #0b592e;
         color: white;
     }
 
     .directory-tabs .nav-link.active {
-        background-color: #084021 !important; /* Even darker green for active state */
+        background-color: #084021 !important;
         box-shadow: inset 0 3px 5px rgba(0,0,0,0.2);
     }
 
@@ -46,36 +46,31 @@
 
 .table-head {
     color: white;
-    background-color: var(--cabuyao-green);
+    background-color: var(--cabuyao-green, #107c41);
 }
 
 .table {
-    table-layout: fixed; /* force equal column widths */
-    width: 100%; /* stretch across container */
+    width: 100%;
+    min-width: 600px; /* Ensures tables don't squish horizontally before scrolling triggers */
 }
 
-.table th:first-child,
-.table td:first-child {
-    width: 60%; /* Department/Office column */
+/* Fix for wrapping tables to ensure horizontal scroll on mobile */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
-
-.table th:last-child,
-.table td:last-child {
-    width: 40%; /* Contact Number column */
-}
-
 
 /* --- CONTACT FORM SECTION --- */
 .custom-input {
     width: 100% !important;
-    max-width: none !important; /* Add this line to remove the ceiling */
+    max-width: none !important;
     box-sizing: border-box;
     background-color: #f2f2f2 !important;
     border: none !important;
     border-radius: 4px;
     padding: 15px;
     box-shadow: none !important;
-    display: block; /* Ensures it behaves as a full-width block element */
+    display: block;
 }
 
     .custom-input::placeholder {
@@ -83,7 +78,7 @@
     }
 
     .custom-input:focus {
-        background-color: #f2f2f2 !important;
+        background-color: #e9ecef !important;
         outline: none;
     }
 
@@ -92,14 +87,13 @@
     height: 1.2rem;
 }
 
-.custom-checkbox:checked {
-    background-color: var(--cabuyao-gold);
-    border-color: var(--cabuyao-gold);
-}
-
+    .custom-checkbox:checked {
+        background-color: var(--cabuyao-gold, #D4AF37);
+        border-color: var(--cabuyao-gold, #D4AF37);
+    }
 
 .custom-submit-btn {
-    background-color: var(--cabuyao-green);
+    background-color: var(--cabuyao-green, #107c41);
     border: none;
     font-weight: bold;
     padding: 12px 60px;

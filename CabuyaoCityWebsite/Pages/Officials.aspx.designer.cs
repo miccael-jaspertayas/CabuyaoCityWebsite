@@ -13,5 +13,23 @@ namespace CabuyaoCityWebsite.Pages
 
     public partial class Officials
     {
+
+        /// <summary>
+        /// rptExecutive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptExecutive;
+
+        /// <summary>
+        /// rptCouncilors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptCouncilors;
     }
 }

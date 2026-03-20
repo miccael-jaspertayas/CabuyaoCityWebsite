@@ -7,11 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CabuyaoCityWebsite
+namespace CabuyaoCityWebsite.Pages
 {
 
 
     public partial class About
     {
+
+        /// <summary>
+        /// rptBarangays control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptBarangays;
+
+        /// <summary>
+        /// rptDepartments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptDepartments;
     }
 }

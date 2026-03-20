@@ -51,6 +51,8 @@
                 </button>
 
                 <div class="collapse navbar-collapse d-lg-inline-flex justify-content-between">
+                    
+                    <%-- Main Links --%>
                     <ul class="navbar-nav ms-auto"> 
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/Home">Home</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/Officials">Officials</a></li>
@@ -75,6 +77,14 @@
                             </ul>
                         </li>
                     </ul>
+
+                    <%-- NEW: Admin Portal Button --%>
+                    <div class="nav-admin-wrapper ms-lg-4 mt-3 mt-lg-0 mb-2 mb-lg-0">
+                        <a class="btn btn-admin text-uppercase fw-bold rounded-pill shadow-sm" runat="server" href="~/Pages/Admin/Login">
+                            <i class="fas fa-lock me-2"></i>Admin
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </nav>
@@ -89,7 +99,9 @@
                 <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             
-            <div class="offcanvas-body px-0 py-2">
+            <div class="offcanvas-body px-0 py-2 d-flex flex-column justify-content-between">
+                
+                <%-- Mobile Navigation Links --%>
                 <ul class="navbar-nav w-100 flex-column mobile-nav">
                     <li class="nav-item px-3 border-bottom border-white border-opacity-10">
                         <a class="nav-link text-white py-3 fs-6" runat="server" href="~/Pages/Home"><i class="fas fa-home me-3 text-cabuyao-gold text-center" style="width:25px;"></i>Home</a>
@@ -103,7 +115,7 @@
                     
                     <li class="nav-item px-3 border-bottom border-white border-opacity-10">
                         <a class="nav-link text-white py-3 fs-6 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#aboutCollapse" role="button" aria-expanded="false" aria-controls="aboutCollapse">
-                            <span><i class="fas fa-info-circle me-3 text-cabuyao-gold text-center" style="width:25px;"></i>About Us&nbsp;</span>
+                            <span><i class="fas fa-info-circle me-3 text-cabuyao-gold text-center" style="width:25px;"></i>About Us </span>
                             <i class="fas fa-chevron-down small"></i>
                         </a>
                         <div class="collapse" id="aboutCollapse">
@@ -119,7 +131,7 @@
 
                     <li class="nav-item px-3 border-bottom border-white border-opacity-10">
                         <a class="nav-link text-white py-3 fs-6 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#contactCollapse" role="button" aria-expanded="false" aria-controls="contactCollapse">
-                            <span><i class="fas fa-address-book me-3 text-cabuyao-gold text-center" style="width:25px;"></i>Contact Us&nbsp;</span>
+                            <span><i class="fas fa-address-book me-3 text-cabuyao-gold text-center" style="width:25px;"></i>Contact Us </span>
                             <i class="fas fa-chevron-down small"></i>
                         </a>
                         <div class="collapse" id="contactCollapse">
@@ -130,6 +142,13 @@
                         </div>
                     </li>
                 </ul>
+
+                <%-- Mobile Admin Login Button --%>
+                <div class="mt-4 px-4 pb-4">
+                    <a class="btn btn-admin text-uppercase fw-bold rounded-pill shadow-sm w-100 justify-content-center py-2" runat="server" href="~/Pages/Admin/Login">
+                        <i class="fas fa-lock me-2"></i>Admin Login
+                    </a>
+                </div>
             </div>
         </div>
 
