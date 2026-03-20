@@ -19,7 +19,7 @@
             
             <%-- City Directory Section --%>
             <section id="City-Directory" class="mb-5">
-                <h2 class="section-title">City Directory</h2>
+                <h2 class="section-title mt-5">City Directory</h2>
                 
                 <div class="text-center mt-4 mb-4">
                     <h4 class="fw-bold text-success mb-2">Trunk Line (Connecting All Department and Offices)</h4>
@@ -44,79 +44,117 @@
                     </li>
                 </ul>
 
-                <%-- Tab Contents (Placeholders for Database integration) --%>
+                <%-- Tab Contents --%>
                 <div class="tab-content rounded-3" id="directoryTabsContent">
                     
-                    <%-- Local Tab Content --%>
+                    <%-- Local Tab Content (Dynamically Generated Subgroups) --%>
                     <div class="tab-pane fade show active" id="local" role="tabpanel" aria-labelledby="local-tab" tabindex="0">
-                        
-                        <h5 class="fw-bold text-center mb-3">City Hall Offices</h5>
-                        <table class="table table-hover table-bordered bg-white text-center">
-                            <thead class="table-head">
-                                <tr>
-                                    <th>Department/Office</th>
-                                    <th>Contact Number</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Office of the Mayor</td><td>Loc. 101</td></tr>
-                                <tr><td>City Administrator's Office</td><td>Loc. 102</td></tr>
-                                </tbody>
-                        </table>
-
-                        <h5 class="fw-bold text-center mt-4 mb-3">Retail Plaza Building</h5>
-                        <table class="table table-hover table-bordered bg-white text-center">
-                            <thead class="table-head">
-                                <tr>
-                                    <th>Department/Office</th>
-                                    <th>Contact Number</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Public Employment Service Office (PESO)</td><td>Loc. 201</td></tr>
-                                <tr><td>City Library</td><td>Loc. 202</td></tr>
-                                </tbody>
-                        </table>
-
-                        <h5 class="fw-bold text-center mt-4 mb-3">Others</h5>
-                        <table class="table table-hover table-bordered bg-white text-center">
-                            <thead class="table-head">
-                                <tr>
-                                    <th>Department/Office</th>
-                                    <th>Contact Number</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Cabuyao City Hospital</td><td>(049) 123-4567</td></tr>
-                                </tbody>
-                        </table>
+                        <asp:Repeater ID="rptLocalGroups" runat="server" OnItemDataBound="rptLocalGroups_ItemDataBound">
+                            <ItemTemplate>
+                                <h5 class="fw-bold text-center mt-4 mb-3"><%# Eval("SubGroup") %></h5>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-bordered bg-white text-center mb-4">
+                                        <thead class="table-head">
+                                            <tr>
+                                                <th>Department/Office</th>
+                                                <th>Landline/Extension</th>
+                                                <th>Mobile Number</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <asp:Repeater ID="rptLocalDepartments" runat="server">
+                                                <ItemTemplate>
+                                                    <tr>
+                                                        <td><%# Eval("DepartmentName") %></td>
+                                                        <td><%# Eval("Landline") %></td>
+                                                        <td><%# Eval("MobileNumber") %></td>
+                                                    </tr>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
 
                     <%-- National Tab Content --%>
                     <div class="tab-pane fade" id="national" role="tabpanel" aria-labelledby="national-tab" tabindex="0">
-                        <h5 class="fw-bold text-center mb-3">National Agencies</h5>
-                        <table class="table table-hover table-bordered bg-white text-center">
-                            <thead class="table-head"><tr><th>Department/Office</th><th>Contact Number</th></tr></thead>
-                            <tbody><tr><td>DILG Cabuyao</td><td>Loc. 301</td></tr></tbody>
-                        </table>
+                        <h5 class="fw-bold text-center mt-4 mb-3">National Agencies</h5>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered bg-white text-center">
+                                <thead class="table-head">
+                                    <tr>
+                                        <th>Department/Office</th>
+                                        <th>Landline/Extension</th>
+                                        <th>Mobile Number</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <asp:Repeater ID="rptNational" runat="server">
+                                        <ItemTemplate>
+                                            <tr>
+                                                <td><%# Eval("DepartmentName") %></td>
+                                                <td><%# Eval("Landline") %></td>
+                                                <td><%# Eval("MobileNumber") %></td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                     <%-- Barangay Tab Content --%>
                     <div class="tab-pane fade" id="barangay" role="tabpanel" aria-labelledby="barangay-tab" tabindex="0">
-                        <h5 class="fw-bold text-center mb-3">Barangay Directory</h5>
-                        <table class="table table-hover table-bordered bg-white text-center">
-                            <thead class="table-head"><tr><th>Barangay</th><th>Contact Number</th></tr></thead>
-                            <tbody><tr><td>Brgy. Sala</td><td>(049) 987-6543</td></tr></tbody>
-                        </table>
+                        <h5 class="fw-bold text-center mt-4 mb-3">Barangay Directory</h5>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered bg-white text-center">
+                                <thead class="table-head">
+                                    <tr>
+                                        <th>Barangay</th>
+                                        <th>Landline/Extension</th>
+                                        <th>Mobile Number</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <asp:Repeater ID="rptBarangay" runat="server">
+                                        <ItemTemplate>
+                                            <tr>
+                                                <td><%# Eval("BarangayName") %></td>
+                                                <td><%# Eval("Landline") %></td>
+                                                <td><%# Eval("MobileNumber") %></td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
-                    <%-- School Tab Content --%>
+                    <%-- School (Pamantasan ng Cabuyao) Tab Content --%>
                     <div class="tab-pane fade" id="school" role="tabpanel" aria-labelledby="school-tab" tabindex="0">
-                        <h5 class="fw-bold text-center mb-3">Public Schools</h5>
-                        <table class="table table-hover table-bordered bg-white text-center">
-                            <thead class="table-head"><tr><th>School Name</th><th>Contact Number</th></tr></thead>
-                            <tbody><tr><td>Cabuyao National High School</td><td>(049) 111-2222</td></tr></tbody>
-                        </table>
+                        <h5 class="fw-bold text-center mt-4 mb-3">Pamantasan ng Cabuyao</h5>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered bg-white text-center">
+                                <thead class="table-head">
+                                    <tr>
+                                        <th>School Name</th>
+                                        <th>Landline/Extension</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <asp:Repeater ID="rptSchool" runat="server">
+                                        <ItemTemplate>
+                                            <tr>
+                                                <td><%# Eval("DepartmentName") %></td>
+                                                <td><%# Eval("Landline") %></td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -124,21 +162,31 @@
             <%-- Send Us a Message Section --%>
             <section id="Send-Message" class="mb-5 mt-5">
                 <h2 class="section-title">Send Us A Message</h2>
+
+                <%-- Modern Alert Panel --%>
+                <asp:Panel ID="pnlAlert" runat="server" Visible="false" role="alert">
+                    <asp:Label ID="lblAlertMessage" runat="server"></asp:Label>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </asp:Panel>
                 
                 <div class="mt-4">
                     <div class="row g-3">
                         <div class="col-md-4">
                             <asp:TextBox ID="txtYourName" runat="server" CssClass="form-control custom-input" Placeholder="Your Name"></asp:TextBox>
                         </div>
+                        
                         <div class="col-md-4">
                             <asp:TextBox ID="txtYourEmail" runat="server" CssClass="form-control custom-input" TextMode="Email" Placeholder="Your Email"></asp:TextBox>
                         </div>
+                        
                         <div class="col-md-4">
                             <asp:TextBox ID="txtYourNumber" runat="server" CssClass="form-control custom-input" Placeholder="Your Phone Number"></asp:TextBox>
                         </div>
+                        
                         <div class="col-12">
                             <asp:TextBox ID="txtMessage" runat="server" CssClass="form-control custom-input" TextMode="MultiLine" Rows="8" Placeholder="Message/Inquiry"></asp:TextBox>
                         </div>
+                        
                         <div class="col-12 mt-3">
                             <div class="form-check d-flex align-items-center">
                                 <input type="checkbox" id="chkTerms" runat="server" class="form-check-input me-2 custom-checkbox" />
@@ -146,22 +194,19 @@
                                     I agree to the <strong>Terms & Conditions</strong> of the City of Cabuyao.
                                 </label>
                             </div>
-
                         </div>
+
                         <div class="col-12 text-center mt-4">
-                            <asp:Button ID="btnSendMessage" runat="server" Text="Send Message" CssClass="btn btn-success btn-lg px-5 custom-submit-btn rounded-1"/>
+                            <asp:Button ID="btnSendMessage" runat="server" Text="Send Message" OnClick="btnSendMessage_Click" CssClass="btn btn-success btn-lg px-5 custom-submit-btn rounded-1" />
                         </div>
                     </div>
                 </div>
             </section>
-
         </div>
     </main>
 
     <%-- Embedded JavaScript --%>
     <script type="text/javascript">
-        // Basic script placeholder. Bootstrap 5 handles the tabs automatically via data-bs-toggle="pill"
-        // You can use this block to initialize form validation or AJAX for your dropdowns/tables in the future.
         document.addEventListener("DOMContentLoaded", function () {
             const sendBtn = document.getElementById('<%= btnSendMessage.ClientID %>');
             const termCheck = document.getElementById('<%= chkTerms.ClientID %>');

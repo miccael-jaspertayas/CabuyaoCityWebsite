@@ -1,6 +1,6 @@
 ﻿/* --- HERO SECTION --- */
 .about-hero {
-    background: linear-gradient(rgba(0, 77, 0, 0.85), rgba(0, 77, 0, 0.85)), url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwdKTIYbwS56DieYPNjeP2zK63mcIcbHmOywWDbtMdOMkXKJMzZv_zgK5LRI98W8qcXdZ4X-n0hZcH2xMvoDmfDoiqfmtNm-yF4iqDB6piv-tMRw3-D4QUp1nhHOHUDD3o6PmcuB5ePVo/s2046/St+Polycarp+Church+or+the+Old+Cabuyao+Church.jpg');
+    background: linear-gradient(rgba(0, 77, 0, 0.85), rgba(0, 77, 0, 0.85)), url('../images/master/default-bg.png');
     background-size: cover;
     background-position: center;
     min-height: 350px;
@@ -105,7 +105,6 @@
 .hover-card {
     border-top: 4px solid var(--cabuyao-green) !important;
     transition: transform 0.2s, box-shadow 0.2s;
-    /* cursor: pointer;  Removed since only the button is clickable now */
 }
 
     .hover-card:hover {

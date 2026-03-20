@@ -99,8 +99,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -120,10 +118,43 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\About\Barangay\baclaran-logo.png" />
+    <Content Include="Images\About\Barangay\banay-banay-logo.png" />
+    <Content Include="Images\About\Barangay\banlic-logo.png" />
+    <Content Include="Images\About\Barangay\bigaa-logo.png" />
+    <Content Include="Images\About\Barangay\butong-logo.png" />
+    <Content Include="Images\About\Barangay\casile-logo.png" />
+    <Content Include="Images\About\Barangay\diezmo-logo.png" />
+    <Content Include="Images\About\Barangay\gulod-logo.png" />
+    <Content Include="Images\About\Barangay\mamatid-logo.png" />
+    <Content Include="Images\About\Barangay\marining-logo.png" />
+    <Content Include="Images\About\Barangay\niugan-logo.png" />
+    <Content Include="Images\About\Barangay\pittland-logo.png" />
+    <Content Include="Images\About\Barangay\poblacion-dos-logo.png" />
+    <Content Include="Images\About\Barangay\poblacion-tres-logo.png" />
+    <Content Include="Images\About\Barangay\poblacion-uno-logo.png" />
+    <Content Include="Images\About\Barangay\pulo-logo.png" />
+    <Content Include="Images\About\Barangay\sala-logo.png" />
+    <Content Include="Images\About\Barangay\san-isidro-logo.png" />
     <Content Include="Images\Master\cabuyao-logo.png" />
+    <Content Include="Images\Master\default-bg.png" />
     <Content Include="Images\Master\header-logo.png" />
+    <Content Include="Images\Master\placeholder.png" />
+    <Content Include="Images\Officials\City\dennis-felipe-hain.jpg" />
+    <Content Include="Images\Officials\City\emerson-devoma.jpg" />
+    <Content Include="Images\Officials\City\evelyn-del-rosario.jpg" />
+    <Content Include="Images\Officials\City\gabriel-bariring.jpg" />
+    <Content Include="Images\Officials\City\jaime-onofre-batallones.jpg" />
+    <Content Include="Images\Officials\City\jose-benson-aguillo.jpg" />
+    <Content Include="Images\Officials\City\jose-miguel-alcabasa.jpg" />
+    <Content Include="Images\Officials\City\kim-hain.jpg" />
+    <Content Include="Images\Officials\City\ma-fe-humarang.jpg" />
+    <Content Include="Images\Officials\City\maria-alexis-alimango.jpg" />
+    <Content Include="Images\Officials\City\rico-mauro-alimagno.jpg" />
+    <Content Include="Images\Officials\City\sherwin-beguico.jpg" />
     <Content Include="Images\Officials\official-placeholder.png" />
     <Content Include="Pages\About.aspx" />
+    <Content Include="Pages\Admin\Login.aspx" />
     <Content Include="Pages\Contact.aspx" />
     <Content Include="Pages\Gallery.aspx" />
     <Content Include="Pages\Home.aspx" />
@@ -190,6 +221,7 @@
     <Content Include="Styles\Contact.css" />
     <Content Include="Styles\Gallery.css" />
     <Content Include="Styles\Home.css" />
+    <Content Include="Styles\Login.css" />
     <Content Include="Styles\NewsAnnouncement.css" />
     <Content Include="Styles\Officials.css" />
     <Content Include="Styles\ViewBrgyDetails.css" />
@@ -198,21 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -222,6 +240,13 @@
     </Compile>
     <Compile Include="Pages\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -276,7 +301,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\About\" />
     <Folder Include="Images\Contact\" />
     <Folder Include="Images\Gallery\" />
     <Folder Include="Images\Home\" />
