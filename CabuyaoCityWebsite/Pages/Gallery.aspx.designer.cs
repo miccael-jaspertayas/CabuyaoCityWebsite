@@ -13,5 +13,23 @@ namespace CabuyaoCityWebsite.Pages
 
     public partial class Gallery
     {
+
+        /// <summary>
+        /// rptTouristSpots control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptTouristSpots;
+
+        /// <summary>
+        /// rptFestivals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptFestivals;
     }
 }

@@ -1,0 +1,108 @@
+﻿
+:root {
+    --cb-bg-light: #f4f7f6; /* Subtle background color */
+}
+
+/* Change the body background slightly to make the container pop */
+body {
+    background-color: var(--cb-bg-light);
+}
+/* --- HERO SECTION --- */
+.post-details-hero {
+    background: linear-gradient(rgba(0, 77, 0, 0.85), rgba(0, 77, 0, 0.85)), url('../images/master/default-bg.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;
+}
+
+.details-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+/* The Main White Container */
+.post-container {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-top: 6px solid var(--cabuyao-green); /* Matching your site theme */
+}
+
+.post-header {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.post-title {
+    color: var(--cabuyao-green);
+    line-height: 1.3;
+}
+
+.post-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #6c757d;
+    align-items: center;
+}
+
+.post-category {
+    background-color: var(--cabuyao-green);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.post-image-container {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.post-content {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.btn-outline-cabuyao-green {
+    border: 2px solid var(--cabuyao-green);
+    color: var(--cabuyao-green);
+    background: transparent;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    padding: 10px 25px;
+    border-radius: 8px;
+}
+
+    .btn-outline-cabuyao-green:hover {
+        background-color: var(--cabuyao-gold);
+        border-color: var(--cabuyao-gold);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+@media (max-width: 768px) {
+    .post-container {
+        padding: 20px;
+    }
+
+    .post-title {
+        font-size: 1.8rem;
+    }
+}

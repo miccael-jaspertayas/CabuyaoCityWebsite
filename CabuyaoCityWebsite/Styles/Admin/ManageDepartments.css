@@ -1,0 +1,173 @@
+﻿/* --- CUSTOM ACTION BUTTONS --- */
+.btn-outline-cabuyao {
+    color: var(--cabuyao-green, #107c41);
+    border: 1px solid var(--cabuyao-green, #107c41);
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn-outline-cabuyao:hover {
+        background-color: var(--cabuyao-green, #107c41);
+        color: #ffffff !important;
+        border-color: var(--cabuyao-green, #107c41);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+.btn-sm-custom {
+    padding: 0.35rem 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- DEPARTMENT TAB STYLING --- */
+.dept-tabs {
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 20px;
+}
+
+    .dept-tabs .nav-link {
+        color: #6c757d;
+        font-weight: 600;
+        border: none;
+        border-bottom: 3px solid transparent;
+        padding: 12px 24px;
+        transition: all 0.3s ease;
+        background: transparent;
+    }
+
+        .dept-tabs .nav-link:hover {
+            color: var(--cabuyao-green, #107c41);
+            background-color: #f8fcf9;
+        }
+
+        .dept-tabs .nav-link.active {
+            color: var(--cabuyao-green, #107c41);
+            border-bottom: 3px solid var(--cabuyao-gold, #D4AF37);
+            background: transparent;
+        }
+
+/* Mobile Styling (Vertical) */
+@media (max-width: 991.98px) {
+    .dept-tabs .nav-item {
+        margin-bottom: 5px; /* Add spacing between stacked tabs */
+    }
+
+    .dept-tabs .nav-link {
+        border-radius: 8px !important; /* Round the corners for a button look */
+        text-align: left; /* Align text to the left for better readability on mobile */
+        padding: 12px 20px;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6 !important;
+    }
+
+        .dept-tabs .nav-link.active {
+            background-color: var(--cabuyao-gold, #D4AF37);
+            color: white !important;
+            border-color: var(--cabuyao-gold, #D4AF37) !important;
+        }
+}
+
+/* Desktop Styling (Horizontal) */
+@media (min-width: 992px) {
+    .dept-tabs .nav-link.active {
+        border-bottom: 3px solid var(--cabuyao-gold, #D4AF37) !important;
+        background-color: transparent;
+        border-radius: 0;
+    }
+}
+
+/* --- BADGES & TABLE UI --- */
+/* Custom class for your table */
+.table-fixed-layout {
+    table-layout: fixed !important;
+    min-width: 800px;
+    width: 100%;
+}
+
+    /* Defining column widths */
+    /* Column 1: Department / Office */
+    .table-fixed-layout thead th:nth-child(1),
+    .table-fixed-layout tbody td:nth-child(1) {
+        width: 60%;
+    }
+
+    /* Column 2: Contact Information */
+    .table-fixed-layout thead th:nth-child(2),
+    .table-fixed-layout tbody td:nth-child(2) {
+        width: 20%;
+    }
+
+    /* Column 3: Actions */
+    .table-fixed-layout thead th:nth-child(3),
+    .table-fixed-layout tbody td:nth-child(3) {
+        width: 20%;
+    }
+
+    /* Prevent text from breaking the layout if it's too long */
+    .table-fixed-layout td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+.subgroup-badge {
+    background-color: #f1f3f5;
+    color: #495057;
+    border: 1px solid #ced4da;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 8px;
+}
+
+.dept-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8fcf9;
+    color: var(--cabuyao-green, #107c41);
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.contact-box {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 8px 12px;
+    border-left: 3px solid var(--cabuyao-green, #107c41);
+}
+
+/* --- DYNAMIC MODAL ALERTS --- */
+.modal-alert {
+    border: none;
+    border-left: 5px solid;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Danger Theme */
+.modal-alert-danger {
+    background-color: #fff5f5;
+    border-left-color: #dc3545;
+    color: #842029;
+}
+
+    .modal-alert-danger i {
+        color: #dc3545;
+    }
+
+/* Success Theme */
+.modal-alert-success {
+    background-color: #f0fdf4;
+    border-left-color: #198754;
+    color: #0f5132;
+}
+
+    .modal-alert-success i {
+        color: #198754;
+    }

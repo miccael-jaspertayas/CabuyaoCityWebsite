@@ -136,10 +136,63 @@
     <Content Include="Images\About\Barangay\pulo-logo.png" />
     <Content Include="Images\About\Barangay\sala-logo.png" />
     <Content Include="Images\About\Barangay\san-isidro-logo.png" />
+    <Content Include="Images\Gallery\cabuyao-day-1.jpg" />
+    <Content Include="Images\Gallery\cabuyao-day-2.jpg" />
+    <Content Include="Images\Gallery\cabuyao-day-3.jpg" />
+    <Content Include="Images\Gallery\cabuyao-day-4.jpg" />
+    <Content Include="Images\Gallery\cabuyao-day-5.jpg" />
+    <Content Include="Images\Gallery\city-hall-1.jpg" />
+    <Content Include="Images\Gallery\city-hall-2.jpg" />
+    <Content Include="Images\Gallery\city-hall-3.jpg" />
+    <Content Include="Images\Gallery\city-hall-4.jpg" />
+    <Content Include="Images\Gallery\city-hall-5.jpg" />
+    <Content Include="Images\Gallery\feast-claire-1.jpg" />
+    <Content Include="Images\Gallery\feast-claire-2.jpg" />
+    <Content Include="Images\Gallery\feast-claire-3.jpg" />
+    <Content Include="Images\Gallery\feast-claire-4.jpg" />
+    <Content Include="Images\Gallery\feast-claire-5.jpg" />
+    <Content Include="Images\Gallery\fiestas-1.jpg" />
+    <Content Include="Images\Gallery\fiestas-2.jpg" />
+    <Content Include="Images\Gallery\fiestas-3.jpg" />
+    <Content Include="Images\Gallery\fiestas-4.jpg" />
+    <Content Include="Images\Gallery\fiestas-5.jpg" />
+    <Content Include="Images\Gallery\lisp-1.jpg" />
+    <Content Include="Images\Gallery\lisp-2.jpg" />
+    <Content Include="Images\Gallery\lisp-3.jpg" />
+    <Content Include="Images\Gallery\lisp-4.jpg" />
+    <Content Include="Images\Gallery\lisp-5.jpg" />
+    <Content Include="Images\Gallery\poor-clares-1.jpg" />
+    <Content Include="Images\Gallery\poor-clares-2.jpg" />
+    <Content Include="Images\Gallery\poor-clares-3.jpg" />
+    <Content Include="Images\Gallery\poor-clares-4.jpg" />
+    <Content Include="Images\Gallery\poor-clares-5.jpg" />
+    <Content Include="Images\Gallery\st-policarps-1.jpg" />
+    <Content Include="Images\Gallery\st-policarps-2.jpg" />
+    <Content Include="Images\Gallery\st-policarps-3.jpg" />
+    <Content Include="Images\Gallery\st-policarps-4.jpg" />
+    <Content Include="Images\Gallery\st-policarps-5.jpg" />
+    <Content Include="Images\Gallery\st-vincent-1.jpg" />
+    <Content Include="Images\Gallery\st-vincent-2.jpg" />
+    <Content Include="Images\Gallery\st-vincent-3.jpg" />
+    <Content Include="Images\Gallery\st-vincent-4.jpg" />
+    <Content Include="Images\Gallery\st-vincent-5.jpg" />
+    <Content Include="Images\Gallery\sta-elena-1.jpg" />
+    <Content Include="Images\Gallery\sta-elena-2.jpg" />
+    <Content Include="Images\Gallery\sta-elena-3.jpg" />
+    <Content Include="Images\Gallery\sta-elena-4.jpg" />
+    <Content Include="Images\Gallery\sta-elena-5.jpg" />
+    <Content Include="Images\Home\city-hall.jpg" />
+    <Content Include="Images\Home\news-announcement-bg.png" />
+    <Content Include="Images\Home\pnc.jpg" />
     <Content Include="Images\Master\cabuyao-logo.png" />
     <Content Include="Images\Master\default-bg.png" />
     <Content Include="Images\Master\header-logo.png" />
     <Content Include="Images\Master\placeholder.png" />
+    <Content Include="Images\NewsAnnouncement\anilag-fest-banner.jpg" />
+    <Content Include="Images\NewsAnnouncement\excellence-awards.jpg" />
+    <Content Include="Images\NewsAnnouncement\health-center-opening.jpg" />
+    <Content Include="Images\NewsAnnouncement\scholarship-announcement.jpg" />
+    <Content Include="Images\NewsAnnouncement\traffic-advisory-map.jpg" />
     <Content Include="Images\Officials\City\dennis-felipe-hain.jpg" />
     <Content Include="Images\Officials\City\emerson-devoma.jpg" />
     <Content Include="Images\Officials\City\evelyn-del-rosario.jpg" />
@@ -154,13 +207,19 @@
     <Content Include="Images\Officials\City\sherwin-beguico.jpg" />
     <Content Include="Images\Officials\official-placeholder.png" />
     <Content Include="Pages\About.aspx" />
+    <Content Include="Pages\Admin\Dashboard.aspx" />
     <Content Include="Pages\Admin\Login.aspx" />
+    <Content Include="Pages\Admin\ManageAdmins.aspx" />
+    <Content Include="Pages\Admin\ManageDepartments.aspx" />
+    <Content Include="Pages\Admin\ManageOfficials.aspx" />
+    <Content Include="Pages\Admin\ManagePosts.aspx" />
     <Content Include="Pages\Contact.aspx" />
     <Content Include="Pages\Gallery.aspx" />
     <Content Include="Pages\Home.aspx" />
-    <Content Include="Pages\NewsAnnouncement.aspx" />
     <Content Include="Pages\Officials.aspx" />
+    <Content Include="Pages\Post.aspx" />
     <Content Include="Pages\ViewBrgyDetails.aspx" />
+    <Content Include="Pages\ViewPostDetails.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -189,6 +248,7 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Admin.Master" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -218,17 +278,31 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="Styles\About.css" />
+    <Content Include="Styles\Admin\Dashboard.css" />
+    <Content Include="Styles\Admin\Admin.css" />
+    <Content Include="Styles\Admin\ManageAdmins.css" />
+    <Content Include="Styles\Admin\ManageDepartments.css" />
+    <Content Include="Styles\Admin\ManageOfficials.css" />
+    <Content Include="Styles\Admin\ManagePosts.css" />
     <Content Include="Styles\Contact.css" />
     <Content Include="Styles\Gallery.css" />
     <Content Include="Styles\Home.css" />
-    <Content Include="Styles\Login.css" />
-    <Content Include="Styles\NewsAnnouncement.css" />
+    <Content Include="Styles\Admin\Login.css" />
     <Content Include="Styles\Officials.css" />
+    <Content Include="Styles\Post.css" />
+    <Content Include="Styles\ViewPostDetails.css" />
     <Content Include="Styles\ViewBrgyDetails.css" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Global.asax.cs">
@@ -241,12 +315,47 @@
     <Compile Include="Pages\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\ManageAdmins.aspx.cs">
+      <DependentUpon>ManageAdmins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\ManageAdmins.aspx.designer.cs">
+      <DependentUpon>ManageAdmins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\ManageDepartments.aspx.cs">
+      <DependentUpon>ManageDepartments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\ManageDepartments.aspx.designer.cs">
+      <DependentUpon>ManageDepartments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\ManageOfficials.aspx.cs">
+      <DependentUpon>ManageOfficials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\ManageOfficials.aspx.designer.cs">
+      <DependentUpon>ManageOfficials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\ManagePosts.aspx.cs">
+      <DependentUpon>ManagePosts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\ManagePosts.aspx.designer.cs">
+      <DependentUpon>ManagePosts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -269,13 +378,6 @@
     <Compile Include="Pages\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\NewsAnnouncement.aspx.cs">
-      <DependentUpon>NewsAnnouncement.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\NewsAnnouncement.aspx.designer.cs">
-      <DependentUpon>NewsAnnouncement.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Officials.aspx.cs">
       <DependentUpon>Officials.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -283,12 +385,26 @@
     <Compile Include="Pages\Officials.aspx.designer.cs">
       <DependentUpon>Officials.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Post.aspx.cs">
+      <DependentUpon>Post.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Post.aspx.designer.cs">
+      <DependentUpon>Post.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ViewBrgyDetails.aspx.cs">
       <DependentUpon>ViewBrgyDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\ViewBrgyDetails.aspx.designer.cs">
       <DependentUpon>ViewBrgyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ViewPostDetails.aspx.cs">
+      <DependentUpon>ViewPostDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ViewPostDetails.aspx.designer.cs">
+      <DependentUpon>ViewPostDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -302,8 +418,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\Contact\" />
-    <Folder Include="Images\Gallery\" />
-    <Folder Include="Images\Home\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
