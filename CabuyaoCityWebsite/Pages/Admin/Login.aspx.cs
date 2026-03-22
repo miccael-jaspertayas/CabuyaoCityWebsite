@@ -23,6 +23,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
+            int adminID = GetAdminID(username);
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
@@ -30,10 +31,10 @@ namespace CabuyaoCityWebsite.Pages.Admin
                 return;
             }
 
-            // In a real application, use password hashing (e.g., BCrypt)
-            if (AuthenticateAdmin(username, password))
+            if (AuthenticateAdmin(username, password) && adminID != -1)
             {
                 Session["AdminUser"] = username;
+                Session["AdminID"] = adminID;
                 Response.Redirect("Dashboard.aspx");
             }
             else
@@ -42,12 +43,29 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        private int GetAdminID(string username)
+        {
+            int adminID = -1;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string query = "SELECT AdminID FROM Admin WHERE Username = @User";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@User", username);
+                conn.Open();
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    adminID = Convert.ToInt32(result);
+                }
+            }
+            return adminID;
+        }
+
         private bool AuthenticateAdmin(string user, string pass)
         {
             bool isValid = false;
             using (SqlConnection conn = new SqlConnection(connStr))
             {
-                // Replace 'AdminAccount' with your actual admin table name
                 string query = "SELECT COUNT(*) FROM Admin WHERE Username = @User AND Password = @Pass";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@User", user);

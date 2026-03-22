@@ -10,7 +10,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
-    <link href="../../Styles/Login.css" rel="stylesheet" />
+    <link href="~/Styles/Admin/Login.css" rel="stylesheet" />
 </head>
 <body class="login-body">
     <form id="form1" runat="server">
@@ -19,7 +19,7 @@
                 
                 <div class="text-center mb-4">
                     <%-- Placeholder for your minimalist logo --%>
-                    <h2 class="fw-bold login-title">ADMIN PORTAL</h2>
+                    <h2 class="fw-bold login-title">ADMIN PANEL</h2>
                     <p class="text-muted small">City of Cabuyao Website Management</p>
                 </div>
 
@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="d-grid gap-2">
-                    <asp:Button ID="btnLogin" runat="server" Text="Login to Dashboard" OnClick="btnLogin_Click" CssClass="btn btn-login btn-lg" />
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn btn-login btn-lg" />
                 </div>
 
                 <div class="text-center mt-4">

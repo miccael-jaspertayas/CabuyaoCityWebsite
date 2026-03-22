@@ -1,0 +1,75 @@
+﻿:root {
+    --cabuyao-green: #0a801f;
+    --cabuyao-green-dark: #004d00;
+    --cabuyao-gold: #D4AF37;
+}
+
+.bg-cabuyao-green {
+    background-color: var(--cabuyao-green) !important;
+}
+
+.text-cabuyao-green {
+    color: var(--cabuyao-green) !important;
+}
+
+.text-cabuyao-gold {
+    color: var(--cabuyao-gold) !important;
+}
+
+.tracking-wide {
+    letter-spacing: 1.5px;
+}
+
+/* Sidebar Layout Settings */
+.admin-sidebar {
+    width: 280px;
+}
+
+    /* Sidebar Hover & Active states */
+    .admin-sidebar .nav-link {
+        border-radius: 6px;
+        padding: 10px 15px;
+        transition: background-color 0.2s;
+        font-size: 0.95rem;
+    }
+
+        .admin-sidebar .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Add an active class style for the code-behind to use later */
+        .admin-sidebar .nav-link.active {
+            background-color: var(--cabuyao-gold) !important;
+            color: var(--cabuyao-green-dark) !important;
+            font-weight: bold;
+        }
+
+/* Main Content Alignment for Desktop */
+@media (min-width: 992px) {
+    .admin-sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .admin-main-content {
+        margin-left: 280px;
+        min-height: 100vh;
+    }
+}
+
+/* Card UI Upgrades */
+.admin-card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.admin-card-header {
+    background-color: white;
+    border-bottom: 2px solid #f0f0f0;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+}

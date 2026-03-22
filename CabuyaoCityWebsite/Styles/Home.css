@@ -1,4 +1,161 @@
-﻿/* --- HERO SECTION --- */
-.home-hero {
-    /*Insert hero design*/
+﻿/* --- Global Variables --- */
+:root {
+    --cabuyao-gold-hover: #e5ac00;
+    --cb-dark: #121212;
+    --cb-white: #ffffff;
+    --cb-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    --border-light: #e0e0e0;
 }
+
+body, html {
+    overflow-x: hidden;
+}
+
+/* --- Hero Section --- */
+#heroCarousel, .carousel-inner, .carousel-item {
+    height: 100vh;
+}
+
+.home-hero {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.hero-slide-1 {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/master/default-bg.png') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-slide-2 {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/home/city-hall.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-slide-3 {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/home/pnc.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Hero Animation Logic */
+.carousel-item .slide-in-top {
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: 0.8s ease-out;
+}
+
+.carousel-item .slide-in-bottom {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 0.8s ease-out;
+}
+
+.carousel-item.active .slide-in-top,
+.carousel-item.active .slide-in-bottom {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.carousel-item.active .slide-in-bottom {
+    transition-delay: 0.3s;
+}
+
+/* --- News Section Background --- */
+.force-full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.news-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6)), url('../images/home/news-announcement-bg.png') fixed center/cover;
+    padding: 80px 0;
+}
+
+.section-title {
+    color: #FFFFFF;
+    letter-spacing: 2px;
+}
+
+.title-underline {
+    width: 80px;
+    height: 3px;
+    border: none;
+    opacity: 1;
+}
+
+.cabuyao-style-card {
+    border: 1px solid var(--border-light);
+    border-top: 5px solid var(--cabuyao-green); /* Thick green bar at top */
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    background: var(--cb-white);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.news-card-image {
+    width: 100%;
+    max-height: 250px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px; /* Remove circle shape */
+    display: block;
+    margin: 0 auto;
+}
+
+.news-badge {
+    background: #e8f5e9;
+    color: var(--cabuyao-green);
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 6px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
+.cabuyao-card-title {
+    color: var(--cabuyao-green);
+    font-weight: bold;
+}
+
+/* Base Button State */
+.btn-outline-cabuyao-green {
+    border: 2px solid var(--cabuyao-green);
+    color: var(--cabuyao-green);
+    background: transparent;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 8px 0;
+    width: 100%; /* Makes button fill the width */
+    transition: all 0.3s ease;
+}
+
+/* --- THE INTERACTIVE HOVER EFFECTS --- */
+
+/* 1. Card Pops Up & Top Border Turns Gold */
+.cabuyao-style-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    border-top-color: var(--cabuyao-gold);
+}
+
+    /* 2. Button Fills with Gold & Text turns White on Card Hover */
+    .cabuyao-style-card:hover .btn-outline-cabuyao-green {
+        background-color: var(--cabuyao-gold);
+        border-color: var(--cabuyao-gold);
+        color: #ffffff;
+    }

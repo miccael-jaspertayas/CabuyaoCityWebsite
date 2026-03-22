@@ -1,0 +1,117 @@
+﻿/* --- ADMIN ACCOUNTS UI --- */
+.btn-green {
+    background-color: var(--cabuyao-green, #0a801f);
+    color: white;
+    border: none;
+    transition: background-color 0.2s ease;
+    border-radius: 4px;
+    padding: 8px 16px;
+}
+
+    .btn-green:hover {
+        background-color: #0c5b2e;
+        color: white;
+    }
+
+/* Custom Action Buttons */
+.btn-outline-cabuyao {
+    color: var(--cabuyao-green, #0a801f); /* Primary Green */
+    border: 1px solid var(--cabuyao-green, #0a801f);
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn-outline-cabuyao:hover {
+        background-color: var(--cabuyao-green, #0a801f);
+        color: #ffffff !important;
+        border-color: var(--cabuyao-green, #0a801f);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+/* Refined Delete Button */
+.btn-outline-danger-custom {
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn-outline-danger-custom:hover {
+        background-color: #dc3545;
+        color: #ffffff !important;
+        box-shadow: 0 4px 8px rgba(220, 53, 69, 0.15);
+    }
+
+/* Ensure icons are centered */
+.btn-sm-custom {
+    padding: 0.25rem 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table thead th {
+    background-color: var(--cabuyao-green, #107c41);
+    color: white;
+    font-weight: 600;
+}
+
+.admin-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #f1f3f5;
+    color: var(--cabuyao-green, #107c41);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* --- DYNAMIC MODAL ALERTS --- */
+.modal-alert {
+    border: none;
+    border-left: 5px solid;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.modal-alert-danger {
+    background-color: #fff5f5;
+    border-left-color: #dc3545;
+    color: #842029;
+}
+
+.modal-alert-success {
+    background-color: #f0fdf4;
+    border-left-color: #198754;
+    color: #0f5132;
+}
+
+/* Ensure password inputs don't stretch weirdly on mobile */
+.custom-input {
+    background-color: #f8f9fa !important;
+    border: 1px solid #dee2e6 !important;
+}
+
+    .custom-input:focus {
+        background-color: #fff !important;
+        border-color: var(--cabuyao-green, #107c41) !important;
+        box-shadow: 0 0 0 0.25rem rgba(16, 124, 65, 0.25) !important;
+    }
