@@ -20,11 +20,11 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // This method loads all posts from the database and binds them to the Repeater control.
         private void LoadPosts()
         {
             using (SqlConnection conn = new SqlConnection(connStr))
             {
-                // Ensure your Post table has columns: PostID, Title, Category, Content, DateCreated, ImageFileName, VersionTag
                 string query = "SELECT * FROM Post ORDER BY DateCreated DESC";
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
@@ -37,7 +37,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
-        // --- TRIGGER ADD MODAL ---
+        // This method is triggered by the "Add New Post" button to prepare the form for a new entry
         protected void btnAddPost_Click(object sender, EventArgs e)
         {
             // Clear form for new entry
@@ -53,7 +53,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             OpenModal("postModal");
         }
 
-        // --- REPEATER ACTIONS (EDIT & DELETE) ---
+        // This method handles commands from the Repeater, such as Edit and Delete actions for each post.
         protected void rptPosts_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             string postID = e.CommandArgument.ToString();
@@ -80,6 +80,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // This method loads the details of a specific post into the form for editing when the Edit command is triggered.
         private void LoadPostForEdit(string postID)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -108,7 +109,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
-        // --- SAVE (INSERT/UPDATE) POST ---
+        // This method handles the saving of a post, whether it's a new entry or an update to an existing one.
         protected void btnSavePost_Click(object sender, EventArgs e)
         {
             string title = txtTitle.Text.Trim();
@@ -200,7 +201,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
                 "var myModalEl = document.getElementById('postModal'); var modal = bootstrap.Modal.getInstance(myModalEl); modal.hide();", true);
         }
 
-        // --- CONFIRM DELETE ---
+        // This method handles the confirmation of post deletion, removing both the database record and the associated image file from the server.
         protected void btnConfirmDelete_Click(object sender, EventArgs e)
         {
             string postID = hfDeletePostID.Value;
@@ -208,14 +209,12 @@ namespace CabuyaoCityWebsite.Pages.Admin
 
             if (!string.IsNullOrEmpty(postID))
             {
-                // 1. Delete File from Server folder
                 if (!string.IsNullOrEmpty(imageName))
                 {
                     string path = Server.MapPath("~/Images/NewsAnnouncement/" + imageName);
                     if (File.Exists(path)) File.Delete(path);
                 }
 
-                // 2. Delete Record from Database
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     string query = "DELETE FROM Post WHERE PostID = @ID";
@@ -230,13 +229,14 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
-        // --- UTILITIES ---
+        // This method open a Bootstrap modal by injecting JavaScript into the page.
         private void OpenModal(string modalId)
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "PopModal",
                 $"var myModal = new bootstrap.Modal(document.getElementById('{modalId}')); myModal.show();", true);
         }
 
+        // This method displays an alert message on the page with a specified type.
         private void ShowAlert(string message, string type)
         {
             pnlAlert.Visible = true;

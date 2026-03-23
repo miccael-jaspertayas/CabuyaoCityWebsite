@@ -22,6 +22,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // This method accepts optional parameters for search and status filtering for more dynamic loading of messages based on user input.
         private void LoadMessages(string search = "", string status = "")
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -55,12 +56,13 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // This method is triggered when the admin clicks the "Filter" button, allowing them to filter messages based on search text and status.
         protected void btnFilter_Click(object sender, EventArgs e)
         {
             LoadMessages(txtSearch.Text.Trim(), ddlStatusFilter.SelectedValue);
         }
 
-        // UPDATED: Now handles MarkRead, MarkReplied, AND ViewMessage
+        // This method handles the commands from the Repeater, such as marking messages as read/replied or viewing details.
         protected void rptMessages_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             string messageId = e.CommandArgument.ToString();
@@ -77,18 +79,18 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
             else if (e.CommandName == "ViewMessage")
             {
-                // 1. Mark as read automatically when they open it
+
                 if (badgeStatus.InnerText == "New")
                 {
                     UpdateMessageStatus(messageId, "Read");
-                    LoadMessages(txtSearch.Text.Trim(), ddlStatusFilter.SelectedValue); // Refresh grid
+                    LoadMessages(txtSearch.Text.Trim(), ddlStatusFilter.SelectedValue);
                 }
 
-                // 2. Fetch and show the full message
                 ShowMessageDetails(messageId);
             }
         }
 
+        // This method updates the status of a message in the database, which is used when marking messages as read or replied.
         private void UpdateMessageStatus(string id, string status)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -103,7 +105,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
-        // NEW METHOD: Fetches the specific message and triggers the modal
+        // This method retrieves the details of a specific message and populates the modal fields to display the message information when the admin clicks "View".
         private void ShowMessageDetails(string id)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -116,7 +118,6 @@ namespace CabuyaoCityWebsite.Pages.Admin
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    // Populate the modal fields matching the ASP Literal IDs
                     litSenderName.Text = reader["SenderName"].ToString();
                     litSenderEmail.Text = reader["SenderEmail"].ToString();
                     litSenderPhone.Text = reader["SenderPhoneNumber"].ToString();
@@ -129,18 +130,16 @@ namespace CabuyaoCityWebsite.Pages.Admin
                     badgeStatus.InnerText = status;
                     badgeStatus.Attributes["class"] = "badge " + GetStatusBadgeClass(status);
 
-                    // Set up the email "Reply" button to automatically open the admin's mail client
                     linkEmail.HRef = "mailto:" + reader["SenderEmail"].ToString();
                     btnReplyEmail.HRef = "mailto:" + reader["SenderEmail"].ToString() + "?subject=RE: Cabuyao City Website Inquiry";
 
-                    // Inject JavaScript to pop open the Bootstrap modal via postback
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowViewModal",
                         "var viewModal = new bootstrap.Modal(document.getElementById('viewMessageModal')); viewModal.show();", true);
                 }
             }
         }
 
-        // UPDATED: Matches the new CSS classes created in Dashboard.css
+        // This method returns the appropriate CSS class for the status badge based on the message status for visual differentiation of message statuses in the UI.
         protected string GetStatusBadgeClass(string status)
         {
             switch (status)

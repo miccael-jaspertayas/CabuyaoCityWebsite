@@ -63,7 +63,7 @@
                                                 </div>
                                                 <div>
                                                     <div class="fw-bold text-dark fs-6"><%# Eval("DepartmentName") %></div>
-                                                    <%-- Only show SubGroup badge if it exists (mostly for Local) --%>
+
                                                     <asp:Label ID="lblSubGroup" runat="server" 
                                                                CssClass="badge subgroup-badge mt-1" 
                                                                Visible='<%# Eval("SubGroup") != DBNull.Value && !string.IsNullOrEmpty(Eval("SubGroup").ToString()) %>'>

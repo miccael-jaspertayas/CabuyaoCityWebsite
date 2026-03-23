@@ -29,7 +29,6 @@
     letter-spacing: 1px;
 }
 
-/* Matching the "custom-input" style from your Contact page */
 .custom-input {
     background-color: #f2f2f2 !important;
     border: none !important;
@@ -64,9 +63,9 @@
 }
 
 .return-link i {
-    font-size: 1.1rem; /* Makes the icon slightly more prominent */
+    font-size: 1.1rem;
 }
 
 .return-link:hover {
-    color: var(--cabuyao-gold) !important; /* Darker green on hover */
+    color: var(--cabuyao-gold) !important; 
 }

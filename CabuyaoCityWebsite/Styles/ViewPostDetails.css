@@ -1,9 +1,8 @@
 ﻿
 :root {
-    --cb-bg-light: #f4f7f6; /* Subtle background color */
+    --cb-bg-light: #f4f7f6;
 }
 
-/* Change the body background slightly to make the container pop */
 body {
     background-color: var(--cb-bg-light);
 }
@@ -21,13 +20,12 @@ body {
     padding: 0 15px;
 }
 
-/* The Main White Container */
 .post-container {
     background: #ffffff;
     border-radius: 15px;
     padding: 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    border-top: 6px solid var(--cabuyao-green); /* Matching your site theme */
+    border-top: 6px solid var(--cabuyao-green);
 }
 
 .post-header {

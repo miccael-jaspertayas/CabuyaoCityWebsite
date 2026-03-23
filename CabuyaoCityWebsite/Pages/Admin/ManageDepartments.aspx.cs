@@ -21,30 +21,29 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
-        // --- TAB SWITCHING LOGIC ---
+        // This method handles the click event for all three tabs (Local, National, School) using CommandArgument to identify which tab was clicked.
         protected void Tab_Click(object sender, EventArgs e)
         {
             LinkButton clickedTab = (LinkButton)sender;
             string category = clickedTab.CommandArgument;
 
-            // Update UI Tab States
             tabLocal.CssClass = category == "Local" ? "nav-link active" : "nav-link";
             tabNational.CssClass = category == "National" ? "nav-link active" : "nav-link";
             tabSchool.CssClass = category == "School" ? "nav-link active" : "nav-link";
 
             hfActiveCategory.Value = category;
-            txtSearch.Text = ""; // Clear search on tab switch
+            txtSearch.Text = "";
 
             LoadDepartments(category, "");
         }
 
-        // --- SEARCH LOGIC ---
+        // This method is triggered when the text in the search box changes. It reloads the departments based on the current active category and the search term.
         protected void txtSearch_TextChanged(object sender, EventArgs e)
         {
             LoadDepartments(hfActiveCategory.Value, txtSearch.Text.Trim());
         }
 
-        // --- DATA BINDING ---
+        // This method loads the departments from the database based on the selected category and optional search term.
         private void LoadDepartments(string category, string search)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -55,8 +54,6 @@ namespace CabuyaoCityWebsite.Pages.Admin
                 {
                     query += " AND DepartmentName LIKE @Search";
                 }
-
-                // Order logically: Group by SubGroup first, then alphabetical by Name
                 query += " ORDER BY SubGroup, DepartmentName";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -78,7 +75,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
-        // --- MODAL TRIGGER: EDIT ---
+        // This method loads the department details into the modal for editing.
         protected void rptDepartments_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "EditContact")
@@ -98,16 +95,13 @@ namespace CabuyaoCityWebsite.Pages.Admin
                     {
                         hfEditDeptID.Value = deptID;
 
-                        // Read-Only Display
                         litDeptName.Text = r["DepartmentName"].ToString();
                         string subGroup = r["SubGroup"].ToString();
                         litSubGroup.Text = string.IsNullOrEmpty(subGroup) ? hfActiveCategory.Value + " Category" : subGroup;
 
-                        // Editable Inputs
                         txtLandline.Text = r["Landline"].ToString();
                         txtMobile.Text = r["MobileNumber"].ToString();
 
-                        // Trigger Modal via ScriptManager since we are in an UpdatePanel
                         ScriptManager.RegisterStartupScript(this, GetType(), "showDeptModal",
                             "var editModal = new bootstrap.Modal(document.getElementById('editDeptModal')); editModal.show();", true);
                     }
@@ -115,7 +109,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
-        // --- SAVE CONTACT INFO ---
+        // This method validates the input and updates the database if valid.
         protected void btnSaveContact_Click(object sender, EventArgs e)
         {
             string deptID = hfEditDeptID.Value;
@@ -124,15 +118,12 @@ namespace CabuyaoCityWebsite.Pages.Admin
             string landline = txtLandline.Text.Trim();
             string mobile = txtMobile.Text.Trim();
 
-            // 1. REGEX PATTERNS
-            // Phone: Strictly allows numbers, spaces, plus, minus, and parentheses. NO LETTERS.
             string phonePattern = @"^[0-9+\-\(\)\slocLOC.]*$";
 
-            // 2. PERFORM VALIDATION
             if (!string.IsNullOrEmpty(landline) && !Regex.IsMatch(landline, phonePattern))
             {
                 ShowModalAlert("Landline contains invalid characters. Only numbers and symbols (), -, +, LOC. are allowed.", "danger");
-                return; // Stops the code here, modal stays open
+                return; 
             }
 
             if (!string.IsNullOrEmpty(mobile) && !Regex.IsMatch(mobile, phonePattern))
@@ -141,7 +132,6 @@ namespace CabuyaoCityWebsite.Pages.Admin
                 return;
             }
 
-            // 3. IF VALIDATION PASSES, SAVE TO DATABASE
             try
             {
                 using (SqlConnection conn = new SqlConnection(connStr))
@@ -171,10 +161,9 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
-        // --- UTILITY METHODS ---
+        // This method returns the appropriate icon class based on the active category, which is used in the repeater to display the correct icon for each department.
         protected string GetCategoryIcon()
         {
-            // Changes the icon in the repeater based on the active tab
             switch (hfActiveCategory.Value)
             {
                 case "National": return "bi bi-bank";
@@ -183,6 +172,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // This method sets the appropriate CSS classes and icons based on the type of alert.
         private void ShowModalAlert(string message, string type)
         {
             pnlModalAlert.Visible = true;
@@ -193,7 +183,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
                 pnlModalAlert.CssClass = "modal-alert modal-alert-success";
                 iconModalAlert.Attributes["class"] = "bi bi-check-circle-fill fs-5 me-3";
             }
-            else // danger / error
+            else
             {
                 pnlModalAlert.CssClass = "modal-alert modal-alert-danger";
                 iconModalAlert.Attributes["class"] = "bi bi-exclamation-triangle-fill fs-5 me-3";

@@ -41,7 +41,6 @@
                                 <ItemTemplate>
                                     <tr>
                                         <td class="ps-4">
-                                            <%-- Using VersionTag here forces the browser to refresh the image if it was updated --%>
                                             <img src='<%# ResolveUrl("~/Images/NewsAnnouncement/" + Eval("ImageFileName")) %>?v=<%# Eval("VersionTag") %>' 
                                                  class="post-thumbnail shadow-sm" alt="Post Image" 
                                                  onerror="this.src='../../Images/Master/placeholder.png';" />

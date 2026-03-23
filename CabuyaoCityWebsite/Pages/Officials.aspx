@@ -120,6 +120,7 @@
         
     </main>
 
+    <%-- Script to handle modal data population --%>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var contactModal = document.getElementById('contactModal');

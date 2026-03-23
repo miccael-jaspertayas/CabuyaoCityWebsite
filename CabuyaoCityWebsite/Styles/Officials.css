@@ -6,7 +6,6 @@
     min-height: 350px;
 }
 
-/* Section Title Decor */
 .section-title {
     color: var(--cabuyao-green, #006600);
     border-bottom: 3px solid var(--cabuyao-gold, #D4AF37);
@@ -14,7 +13,6 @@
     font-weight: 700;
 }
 
-/* Base Card Styling */
 .official-card {
     border: none;
     background: #fdfdfd;
@@ -32,12 +30,12 @@
         border-top-color: var(--cabuyao-gold, #D4AF37);
     }
 
-/* --- MODAL SPECIFIC STYLES --- */
+/* --- MODAL STYLES --- */
 .modal-profile-img-wrapper {
     width: 200px;
     height: 200px;
     margin: 0 auto;
-    margin-top: -20px; /* Slight overlap effect */
+    margin-top: -20px; 
     position: relative;
     z-index: 1;
 }
@@ -49,7 +47,6 @@
     background-color: #f8f9fa;
 }
 
-/* Ensure the modal doesn't look too cramped on extra small screens */
 @media (max-width: 400px) {
     .modal-sm {
         max-width: 90%;
@@ -59,24 +56,20 @@
 
 /* --- EXECUTIVE CARDS (Horizontal Layout) --- */
 .exec-card {
-    /* Ensures the card doesn't shrink awkwardly on large screens */
     min-height: 250px;
 }
 
-/* Left Image Column */
 .exec-img-col {
     background-color: #eee;
-    /* Force image column to stretch full height of the card on desktop */
     display: flex;
 }
 
-/* Name Underline Styling */
 .exec-name {
     color: var(--cabuyao-green, #006600);
     position: relative;
     display: inline-block;
     padding-bottom: 5px;
-    margin-bottom: 5px; /* Space between line and title */
+    margin-bottom: 5px; 
 }
 
     .exec-name::after {
@@ -84,18 +77,16 @@
         position: absolute;
         left: 0;
         bottom: 0;
-        width: 60px; /* Length of the underline */
+        width: 60px;
         height: 3px;
         background-color: var(--cabuyao-gold, #D4AF37);
         transition: width 0.3s ease;
     }
 
-/* Animate underline on hover */
 .exec-card:hover .exec-name::after {
     width: 100%;
 }
 
-/* Bullet List Styling */
 .official-details-list {
     padding-left: 1.2rem;
     line-height: 1.6;
@@ -118,17 +109,14 @@
 
 .official-card:hover img {
     filter: grayscale(0%);
-    /* Slight zoom effect on hover for extra polish */
     transform: scale(1.03);
 }
 
-/* Utility for object fit (if needed for older browsers) */
 .object-fit-cover {
     object-fit: cover;
 }
 
 /* --- RESPONSIVE GRIDS --- */
-/* Custom grid for 5 columns on desktop for Sangguniang Panlungsod */
 @media (min-width: 1200px) {
     .col-xl-2-4 {
         flex: 0 0 auto;
@@ -136,23 +124,19 @@
     }
 }
 
-/* Responsive adjustments for mobile */
 @media (max-width: 767.98px) {
-    /* 1. Override Bootstrap's !important h-100 utility to stop the overlap */
     .exec-card .row.h-100,
     .exec-img-col.h-100,
     .official-img-container.h-100 {
         height: auto !important;
     }
 
-    /* 2. Set a clean, fixed height for the image block on mobile */
     .exec-img-col img {
         width: 100% !important;
         object-fit: cover;
-        object-position: top center; /* Keeps the official's face in the frame */
+        object-position: top center;
     }
 
-    /* 3. Adjust typography to fit smaller screens nicely */
     .exec-name {
         font-size: 1.25rem;
     }

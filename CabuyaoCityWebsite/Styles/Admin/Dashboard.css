@@ -1,4 +1,4 @@
-﻿/* --- DASHBOARD SPECIFIC STYLES --- */
+﻿/* --- DASHBOARD STYLES --- */
 .btn-green {
     background-color: var(--cabuyao-green, #0a801f);
     color: white;
@@ -19,7 +19,7 @@
 }
 
     .table-hover tbody tr:hover {
-        background-color: #f8fcf9; /* Very faint green tint on hover */
+        background-color: #f8fcf9;
     }
 
 .table thead th {
@@ -30,7 +30,7 @@
 
 /* Custom Badges */
 .badge-new {
-    background-color: #dc3545; /* Red for urgent/new */
+    background-color: #dc3545;
     color: white;
 }
 

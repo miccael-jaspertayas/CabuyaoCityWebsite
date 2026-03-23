@@ -13,9 +13,9 @@
 /* Base Card State */
 .news-card {
     border: 1px solid var(--border-light);
-    border-top: 4px solid var(--cabuyao-green); /* Thicker top border */
+    border-top: 4px solid var(--cabuyao-green);
     border-radius: 8px;
-    transition: all 0.3s ease; /* Smooth transition for the "pop" */
+    transition: all 0.3s ease;
     background: #fff;
 }
 
@@ -40,24 +40,22 @@
     transition: all 0.3s ease;
 }
 
-/* --- THE HOVER EFFECT --- */
+/* --- Hover Effect --- */
 .news-card:hover {
-    transform: translateY(-5px); /* Makes the card "pop out" upwards */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Adds depth */
-    border-color: var(--border-light); /* Keep side borders light */
-    border-top-color: var(--cabuyao-gold) !important; /* Change top border to gold */
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-color: var(--border-light);
+    border-top-color: var(--cabuyao-gold) !important;
 }
 
-    /* Change title color on card hover */
     .news-card:hover .news-card-title {
-        color: var(--cabuyao-green); /* Or change to gold if you prefer */
+        color: var(--cabuyao-green); 
     }
 
-    /* The Button "Pop" - Fills with Gold, Text turns White */
     .news-card:hover .btn-details {
         background-color: var(--cabuyao-gold);
         border-color: var(--cabuyao-gold);
-        color: #fff !important; /* White text as seen in your image */
+        color: #fff !important;
     }
 
 .category-badge {

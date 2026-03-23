@@ -18,11 +18,11 @@ namespace CabuyaoCityWebsite.Pages
             }
         }
 
+        // This method loads the barangays from the database and binds them to the Repeater control
         private void LoadBarangays()
         {
             using (SqlConnection conn = new SqlConnection(connStr))
             {
-                // Retrieves the ID for the query string, and the Name/Logo for the layout
                 string query = "SELECT BarangayID, BarangayName, LogoFileName FROM Barangay ORDER BY BarangayName ASC";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -34,11 +34,11 @@ namespace CabuyaoCityWebsite.Pages
             }
         }
 
+        // This method loads the departments from the database and binds them to the Repeater control
         private void LoadDepartments()
         {
             using (SqlConnection conn = new SqlConnection(connStr))
             {
-                // Ensure your Department table columns match these names
                 string query = "SELECT DeptID, DepartmentName, LogoFileName FROM Department WHERE Category = 'Local' ORDER BY SubGroup ASC";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);

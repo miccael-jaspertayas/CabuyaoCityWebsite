@@ -21,18 +21,21 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // This method loads both city officials and barangays based on the optional search term.
         private void LoadData(string searchTerm = "")
         {
             LoadCityOfficials(searchTerm);
             LoadBarangays(searchTerm);
         }
 
+        // This method retrieves the search term from the input.
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             HideAlerts();
             LoadData(txtSearch.Text.Trim());
         }
 
+        // This method clears the search input.
         protected void btnClear_Click(object sender, EventArgs e)
         {
             HideAlerts();
@@ -40,7 +43,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             LoadData();
         }
 
-        // --- DATA BINDING ---
+        // This method loads city officials (those without a BarangayID) based on the search term and binds them to the rptCityOfficials repeater.
 
         private void LoadCityOfficials(string search)
         {
@@ -67,6 +70,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // This method loads barangays and their officials based on the search term.
         private void LoadBarangays(string search)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -92,6 +96,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // This method loads the officials for that barangay based on the search term.
         protected void rptBarangays_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -123,7 +128,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
-        // --- HELPER METHOD FOR IN-MODAL ALERTS ---
+        // This method shows a modal alert with the specified message and type (success or danger).
         private void ShowModalAlert(Panel pnl, Label lbl, HtmlGenericControl icon, string message, string type)
         {
             pnl.Visible = true;
@@ -141,13 +146,14 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // This method hides both modal alerts.
         private void HideAlerts()
         {
             pnlOfficialAlert.Visible = false;
             pnlBrgyAlert.Visible = false;
         }
 
-        // --- EDIT TRIGGERS ---
+        // This method handles the Edit button click for both city officials and barangay officials, retrieves their details from the database, and populates the respective modal for editing.
 
         protected void rptOfficials_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -179,6 +185,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // This method handles the Edit button click for barangays, retrieves their details from the database, and populates the barangay info modal for editing.
         protected void rptBarangays_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "EditBrgy")
@@ -207,7 +214,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
-        // --- SAVE ACTIONS WITH VALIDATION ---
+        // This method validates the input for contact number and email, updates the official's contact information in the database, and shows a success or error message in the modal alert.
 
         protected void btnSaveOfficial_Click(object sender, EventArgs e)
         {
@@ -255,6 +262,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // This method validates the input for barangay landline and mobile number, updates the barangay's contact information in the database, and shows a success or error message in the modal alert.
         protected void btnSaveBrgyInfo_Click(object sender, EventArgs e)
         {
             string landline = txtBrgyLandline.Text.Trim();

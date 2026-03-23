@@ -3,7 +3,6 @@
     background: linear-gradient(rgba(0, 77, 0, 0.85), rgba(0, 77, 0, 0.85)), url('../images/master/default-bg.png');
     background-size: cover;
     background-position: center;
-    /* Increased height slightly to accommodate the overlapping card */
     min-height: 400px;
     padding-bottom: 50px;
 }
@@ -20,14 +19,14 @@
     background-color: var(--cabuyao-green);
 }
 
-/* --- ABOUT SECTION (OVERLAPPING CARD) --- */
+/* --- ABOUT SECTION --- */
 
 .brgy-logo-large {
     width: 200px;
     height: 200px;
     object-fit: contain;
     border: 2px solid #fff;
-    margin-top: -90px; /* Pulls the logo up outside the box */
+    margin-top: -90px;
     padding: 8px;
 }
 
@@ -38,7 +37,7 @@
 
 .official-grid-card {
     border: 1px solid #eaeaea;
-    border-top: 5px solid var(--cabuyao-green); /* Matches the reference image */
+    border-top: 5px solid var(--cabuyao-green);
     border-radius: 8px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -46,7 +45,7 @@
     .official-grid-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
-        border-top-color: var(--cabuyao-gold); /* Fun interactive touch */
+        border-top-color: var(--cabuyao-gold);
     }
 
 .official-logo-wrapper {

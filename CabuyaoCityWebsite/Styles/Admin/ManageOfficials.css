@@ -71,7 +71,6 @@
     font-weight: 600;
 }
 
-/* 30-20-30-20 Column Layout */
 .table th:nth-child(1), .table td:nth-child(1) {
     width: 30%;
 }
@@ -104,7 +103,7 @@
         box-shadow: 0 0 0 0.25rem rgba(16, 124, 65, 0.25) !important;
     }
 
-/* --- MODAL ENHANCEMENTS --- */
+/* --- MODAL --- */
 .modal-dialog {
     width: 500px !important;
     max-width: 95% !important;
@@ -129,7 +128,6 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* Dynamic In-Modal Alerts */
 .modal-alert {
     border: none;
     border-left: 5px solid;

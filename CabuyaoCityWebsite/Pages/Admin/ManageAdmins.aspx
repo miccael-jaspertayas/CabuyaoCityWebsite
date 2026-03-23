@@ -41,7 +41,7 @@
                                         </td>
                                         <td class="fw-bold text-dark fs-6">
                                             <%# Eval("Username") %>
-                                            <%-- Tag the currently logged in user --%>
+
                                             <asp:Label ID="lblCurrentUser" runat="server" CssClass="badge bg-success ms-2" 
                                                        Visible='<%# Eval("Username").ToString() == Session["AdminUser"]?.ToString() %>'>You</asp:Label>
                                         </td>
@@ -159,6 +159,7 @@
         </div>
     </div>
 
+    <%--JavaScript to auto-hide global alert after 5 seconds--%>
     <script type="text/javascript">
         function hideGlobalAlert() {
             var alertId = '<%= pnlGlobalAlert.ClientID %>';
@@ -167,9 +168,8 @@
             // If the alert exists and is visible
             if (alertEl && alertEl.style.display !== 'none') {
                 setTimeout(function () {
-                    // Bootstrap 5 fade out mechanics
                     alertEl.classList.remove('show');
-                    setTimeout(() => alertEl.style.display = 'none', 150); // wait for fade transition
+                    setTimeout(() => alertEl.style.display = 'none', 150);
                 }, 5000); // 5 seconds
             }
         }
@@ -177,7 +177,6 @@
         // Run on initial load
         document.addEventListener("DOMContentLoaded", hideGlobalAlert);
 
-        // Re-bind the function after an ASP.NET UpdatePanel partial postback
         if (typeof Sys !== 'undefined') {
             Sys.WebForms.PageRequestManager.getInstance().add_endRequest(hideGlobalAlert);
         }

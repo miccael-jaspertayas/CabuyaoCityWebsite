@@ -33,23 +33,22 @@
 .mv-title {
     color: var(--cabuyao-green) !important;
     position: relative;
-    display: inline-block; /* keeps underline tight to text */
+    display: inline-block;
 }
 
     .mv-title::after {
         content: "";
         position: absolute;
         left: 0;
-        bottom: -5px; /* adjust spacing below text */
+        bottom: -5px;
         width: 60px;
         height: 3px;
         background-color: var(--cabuyao-gold);
-        transition: width 0.3s ease; /* animate the line */
+        transition: width 0.3s ease;
     }
 
-/* When the card is hovered, animate the underline on the title */
 .mv-card:hover .mv-title::after {
-    width: 100%; /* expands smoothly across the text */
+    width: 100%;
 }
 
 /* --- ACCORDION (HISTORY) STYLING --- */
@@ -59,21 +58,19 @@
     border-left: 4px solid var(--cabuyao-green) !important;
     box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     transition: all 0.3s ease;
-    overflow: hidden; /* Keeps border-radius clean */
+    overflow: hidden;
 }
 
-    /* Dynamically changes left border/shadow when the accordion is open */
     .accordion-item.history-era:has(.accordion-button:not(.collapsed)) {
         border-left-color: var(--cabuyao-gold) !important;
         box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
 
-    /* Button (Summary) Styling */
     .accordion-item.history-era .accordion-button {
         color: var(--cabuyao-green);
         font-size: 1.15rem;
         background-color: transparent;
-        box-shadow: none; /* Removes Bootstrap blue focus ring */
+        box-shadow: none;
         padding: 15px 20px;
     }
 
@@ -83,8 +80,8 @@
 
         /* Custom Dropdown Arrow */
         .accordion-item.history-era .accordion-button::after {
-            background-image: none; /* Removes default Bootstrap SVG arrow */
-            content: '\25BC'; /* Down arrow unicode */
+            background-image: none;
+            content: '\25BC';
             font-size: 0.9rem;
             color: var(--cabuyao-green);
             transition: transform 0.3s ease;
@@ -95,13 +92,12 @@
             color: var(--cabuyao-gold);
         }
 
-    /* Inner Text Styling */
     .accordion-item.history-era .accordion-body {
         padding: 15px 20px;
         border-top: 1px dashed #e5e7eb;
     }
 
-/* --- HOVER CARDS (Barangays & Departments) --- */
+/* --- HOVER CARDS (Barangays and Departments) --- */
 .hover-card {
     border-top: 4px solid var(--cabuyao-green) !important;
     transition: transform 0.2s, box-shadow 0.2s;

@@ -7,7 +7,6 @@ namespace CabuyaoCityWebsite
 {
     public partial class Home : System.Web.UI.Page
     {
-        // Using your specific connection string name from Web.config
         protected string connString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -18,6 +17,7 @@ namespace CabuyaoCityWebsite
             }
         }
 
+        // This method retrieves the three most recent news posts from the database and binds them to the Repeater control.
         private void BindRecentNews()
         {
             using (SqlConnection conn = new SqlConnection(connString))
@@ -27,7 +27,7 @@ namespace CabuyaoCityWebsite
                 {
                     try
                     {
-                        conn.Open(); // Explicitly open
+                        conn.Open();
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
@@ -39,16 +39,12 @@ namespace CabuyaoCityWebsite
                         }
                         else
                         {
-                            // If this runs, your SQL query returned 0 rows. 
-                            // Check if your database table "Post" actually has data.
                             System.Diagnostics.Debug.WriteLine("DATABASE LINKED BUT EMPTY.");
                         }
                     }
                     catch (Exception ex)
                     {
-                        // This will catch connection string errors or SQL syntax errors
                         System.Diagnostics.Debug.WriteLine("SQL ERROR: " + ex.Message);
-                        // Temporary: show error on page to see it immediately
                         Response.Write("<script>alert('Error: " + ex.Message.Replace("'", "") + "');</script>");
                     }
                 }
