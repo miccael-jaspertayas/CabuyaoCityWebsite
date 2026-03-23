@@ -11,7 +11,7 @@ namespace CabuyaoCityWebsite
     {
         protected void Page_Init(object sender, EventArgs e)
         {
-            // Global Security Check: Run on Init to prevent page rendering if unauthorized
+            // Check if the admin user is logged in
             if (Session["AdminUser"] == null || (int)Session["AdminID"] == -1)
             {
                 Response.Redirect("Login.aspx");
@@ -22,6 +22,7 @@ namespace CabuyaoCityWebsite
         {
         }
 
+        // Logout button click event handler
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session.Clear();

@@ -60,7 +60,6 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <%-- Formats SQL DateTime cleanly --%>
                                     <%# Convert.ToDateTime(Eval("DateReceived")).ToString("MMM dd, yyyy") %><br />
                                     <small class="text-muted"><%# Convert.ToDateTime(Eval("DateReceived")).ToString("hh:mm tt") %></small>
                                 </td>

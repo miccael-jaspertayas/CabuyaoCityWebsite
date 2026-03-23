@@ -21,6 +21,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // This method loads all admin accounts from the database and binds them to the Repeater control.
         private void LoadAdmins()
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -35,27 +36,25 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
-        // --- TRIGGER ADD MODAL ---
+        // This method prepares the modal for creating a new admin account.
         protected void btnAddAdmin_Click(object sender, EventArgs e)
         {
             hfAdminID.Value = "";
             txtUsername.Text = "";
 
-            // In ASP.NET, setting TextMode="Password" automatically clears text on postback,
-            // but we explicitly ensure attributes are clean.
             txtPassword.Attributes.Add("value", "");
             txtConfirmPassword.Attributes.Add("value", "");
 
             litModalTitle.Text = "Add New Admin";
             litPasswordLabel.Text = "Password";
-            smPasswordHint.Visible = false; // Hide "leave blank" hint
+            smPasswordHint.Visible = false;
             pnlModalAlert.Visible = false;
 
             ScriptManager.RegisterStartupScript(this, GetType(), "showAdminModal",
                 "var adminModal = new bootstrap.Modal(document.getElementById('adminModal')); adminModal.show();", true);
         }
 
-        // --- GRID ACTIONS (EDIT & DELETE) ---
+        // This method handles both Edit and Delete commands from the Repeater.
         protected void rptAdmins_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             string adminID = e.CommandArgument.ToString();
@@ -88,18 +87,16 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
             else if (e.CommandName == "PromptDelete")
             {
-                // Set the ID in the hidden field inside the Delete Modal
                 hfDeleteAdminID.Value = adminID;
 
-                // Hide global alert if it was showing from a previous action
                 pnlGlobalAlert.Visible = false;
 
-                // Show the custom delete modal
                 ScriptManager.RegisterStartupScript(this, GetType(), "showDeleteModal",
                     "var deleteModal = new bootstrap.Modal(document.getElementById('deleteModal')); deleteModal.show();", true);
             }
         }
 
+        // This method deletes the selected admin account from the database after confirmation.
         protected void btnConfirmDelete_Click(object sender, EventArgs e)
         {
             string adminID = hfDeleteAdminID.Value;
@@ -118,26 +115,23 @@ namespace CabuyaoCityWebsite.Pages.Admin
 
                 LoadAdmins();
 
-                // Show Global Alert at the top
                 pnlGlobalAlert.Visible = true;
                 pnlGlobalAlert.CssClass = "alert alert-success alert-dismissible fade show";
                 lblGlobalAlert.Text = "<strong><i class='bi bi-check-circle me-2'></i>Deleted!</strong> Account removed successfully.";
 
-                // Close the delete modal via JS
                 ScriptManager.RegisterStartupScript(this, GetType(), "hideDeleteModal",
                     "var deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteModal')); if(deleteModal) { deleteModal.hide(); }", true);
             }
         }
 
-        // --- SAVE ADMIN (INSERT OR UPDATE) ---
+        // This method handles both creating new admin accounts and updating existing ones based on whether an AdminID is present.
         protected void btnSaveAdmin_Click(object sender, EventArgs e)
         {
             string adminID = hfAdminID.Value;
             string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text; // Do not trim passwords, spaces might be intentional
+            string password = txtPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
 
-            // 1. Basic Validation
             if (string.IsNullOrEmpty(username))
             {
                 ShowModalAlert("Username cannot be empty.", "danger");
@@ -156,7 +150,6 @@ namespace CabuyaoCityWebsite.Pages.Admin
                 return;
             }
 
-            // 2. Check for Duplicate Username
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 string checkQuery = "SELECT COUNT(*) FROM Admin WHERE Username = @User AND AdminID != @ID";
@@ -173,21 +166,18 @@ namespace CabuyaoCityWebsite.Pages.Admin
                     return;
                 }
 
-                // 3. Execute Insert or Update
                 string query;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
 
                 if (string.IsNullOrEmpty(adminID))
                 {
-                    // INSERT NEW ADMIN
                     query = "INSERT INTO Admin (Username, Password) VALUES (@User, @Pass)";
                     cmd.Parameters.AddWithValue("@User", username);
                     cmd.Parameters.AddWithValue("@Pass", password);
                 }
                 else
                 {
-                    // UPDATE EXISTING ADMIN
                     if (string.IsNullOrEmpty(password))
                     {
                         // Keep old password
@@ -218,12 +208,11 @@ namespace CabuyaoCityWebsite.Pages.Admin
                 }
             }
 
-            // Success! Refresh grid, show alert, and keep modal open momentarily to see success state
             LoadAdmins();
             ShowModalAlert("Admin account saved successfully!", "success");
         }
 
-        // --- HELPER FOR MODAL ALERTS ---
+        // This method displays a message in the modal alert panel with appropriate styling based on the type.
         private void ShowModalAlert(string message, string type)
         {
             pnlModalAlert.Visible = true;
@@ -234,7 +223,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
                 pnlModalAlert.CssClass = "modal-alert modal-alert-success";
                 iconModalAlert.Attributes["class"] = "bi bi-check-circle-fill fs-5 me-3";
             }
-            else // danger
+            else
             {
                 pnlModalAlert.CssClass = "modal-alert modal-alert-danger";
                 iconModalAlert.Attributes["class"] = "bi bi-exclamation-triangle-fill fs-5 me-3";

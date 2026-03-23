@@ -1,5 +1,4 @@
-﻿/* --- Global Variables --- */
-:root {
+﻿:root {
     --cabuyao-gold-hover: #e5ac00;
     --cb-dark: #121212;
     --cb-white: #ffffff;
@@ -43,7 +42,6 @@ body, html {
     background-repeat: no-repeat;
 }
 
-/* Hero Animation Logic */
 .carousel-item .slide-in-top {
     transform: translateY(-50px);
     opacity: 0;
@@ -95,7 +93,7 @@ body, html {
 
 .cabuyao-style-card {
     border: 1px solid var(--border-light);
-    border-top: 5px solid var(--cabuyao-green); /* Thick green bar at top */
+    border-top: 5px solid var(--cabuyao-green);
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
@@ -110,7 +108,7 @@ body, html {
     max-height: 250px;
     height: auto;
     object-fit: contain;
-    border-radius: 8px; /* Remove circle shape */
+    border-radius: 8px;
     display: block;
     margin: 0 auto;
 }
@@ -140,20 +138,16 @@ body, html {
     font-weight: bold;
     border-radius: 6px;
     padding: 8px 0;
-    width: 100%; /* Makes button fill the width */
+    width: 100%; 
     transition: all 0.3s ease;
 }
 
-/* --- THE INTERACTIVE HOVER EFFECTS --- */
-
-/* 1. Card Pops Up & Top Border Turns Gold */
 .cabuyao-style-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(0,0,0,0.3);
     border-top-color: var(--cabuyao-gold);
 }
 
-    /* 2. Button Fills with Gold & Text turns White on Card Hover */
     .cabuyao-style-card:hover .btn-outline-cabuyao-green {
         background-color: var(--cabuyao-gold);
         border-color: var(--cabuyao-gold);

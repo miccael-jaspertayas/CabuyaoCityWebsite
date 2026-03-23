@@ -19,6 +19,7 @@ namespace CabuyaoCityWebsite.Pages
             }
         }
 
+        // Load all albums and bind them to the respective repeaters based on their category
         private void LoadGallery()
         {
             using (SqlConnection conn = new SqlConnection(connStr))

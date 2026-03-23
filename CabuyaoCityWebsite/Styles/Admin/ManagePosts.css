@@ -14,7 +14,7 @@
 
 /* Custom Action Buttons */
 .btn-outline-cabuyao {
-    color: var(--cabuyao-green, #0a801f); /* Primary Green */
+    color: var(--cabuyao-green, #0a801f);
     border: 1px solid var(--cabuyao-green, #0a801f);
     background-color: transparent;
     transition: all 0.2s ease-in-out;
@@ -27,7 +27,6 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-/* Refined Delete Button */
 .btn-outline-danger-custom {
     color: #dc3545;
     border: 1px solid #dc3545;
@@ -41,7 +40,6 @@
         box-shadow: 0 4px 8px rgba(220, 53, 69, 0.15);
     }
 
-/* Ensure icons are centered */
 .btn-sm-custom {
     padding: 0.25rem 0.6rem;
     display: inline-flex;
@@ -56,6 +54,7 @@
     border-radius: 4px;
     border: 1px solid #dee2e6;
 }
+
 /* Custom file upload styling */
 .custom-file-upload {
     border: 2px dashed #ced4da;

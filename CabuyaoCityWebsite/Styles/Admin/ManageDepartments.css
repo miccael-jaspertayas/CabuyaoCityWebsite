@@ -50,12 +50,12 @@
 /* Mobile Styling (Vertical) */
 @media (max-width: 991.98px) {
     .dept-tabs .nav-item {
-        margin-bottom: 5px; /* Add spacing between stacked tabs */
+        margin-bottom: 5px;
     }
 
     .dept-tabs .nav-link {
-        border-radius: 8px !important; /* Round the corners for a button look */
-        text-align: left; /* Align text to the left for better readability on mobile */
+        border-radius: 8px !important;
+        text-align: left;
         padding: 12px 20px;
         background-color: #f8f9fa;
         border: 1px solid #dee2e6 !important;
@@ -78,33 +78,27 @@
 }
 
 /* --- BADGES & TABLE UI --- */
-/* Custom class for your table */
 .table-fixed-layout {
     table-layout: fixed !important;
     min-width: 800px;
     width: 100%;
 }
 
-    /* Defining column widths */
-    /* Column 1: Department / Office */
     .table-fixed-layout thead th:nth-child(1),
     .table-fixed-layout tbody td:nth-child(1) {
         width: 60%;
     }
 
-    /* Column 2: Contact Information */
     .table-fixed-layout thead th:nth-child(2),
     .table-fixed-layout tbody td:nth-child(2) {
         width: 20%;
     }
 
-    /* Column 3: Actions */
     .table-fixed-layout thead th:nth-child(3),
     .table-fixed-layout tbody td:nth-child(3) {
         width: 20%;
     }
 
-    /* Prevent text from breaking the layout if it's too long */
     .table-fixed-layout td {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -138,7 +132,7 @@
     border-left: 3px solid var(--cabuyao-green, #107c41);
 }
 
-/* --- DYNAMIC MODAL ALERTS --- */
+/* --- MODAL ALERTS --- */
 .modal-alert {
     border: none;
     border-left: 5px solid;

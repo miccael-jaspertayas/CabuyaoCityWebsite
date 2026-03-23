@@ -27,6 +27,7 @@ namespace CabuyaoCityWebsite.Pages
             }
         }
 
+        // Load barangay details and handle null or empty values gracefully.
         private void LoadBarangayDetails(string id)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -41,7 +42,6 @@ namespace CabuyaoCityWebsite.Pages
                 {
                     litHeroBrgyName.Text = "Barangay " + reader["BarangayName"].ToString();
 
-                    // Check for nulls or empty strings using C# string methods
                     string landline = reader["Landline"].ToString();
                     lblLandline.Text = string.IsNullOrWhiteSpace(landline) ? "N/A" : landline;
 
@@ -53,12 +53,11 @@ namespace CabuyaoCityWebsite.Pages
             }
         }
 
+        // Load officials and handle null or empty values directly in the SQL query for cleaner code.
         private void LoadOfficials(string id)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
             {
-                // Join Official and Barangay tables to get the LogoFileName.
-                // Use ISNULL and NULLIF to handle blank data directly in SQL.
                 string query = @"
                     SELECT 
                         LTRIM(RTRIM(o.FirstName + ' ' + o.LastName + ' ' + ISNULL(o.Suffix, ''))) AS FullName,

@@ -17,6 +17,7 @@ namespace CabuyaoCityWebsite.Pages
             }
         }
 
+        // Load all posts from the database and bind to the Repeater
         private void LoadAllPosts()
         {
             using (SqlConnection conn = new SqlConnection(connString))

@@ -262,7 +262,7 @@ body.lightbox-open {
 /* Mobile overrides */
 @media (max-width: 768px) {
     .main-gallery-item {
-        aspect-ratio: 4 / 3; /* Returns to standard aspect ratio on mobile stack */
+        aspect-ratio: 4 / 3;
         height: auto;
         min-height: unset;
     }

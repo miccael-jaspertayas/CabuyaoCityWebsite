@@ -112,6 +112,7 @@
             </div>
         </div>
 
+        <%--Lightbox Script--%>
         <script>
             var lightboxItems = [], currentIndex = 0;
             var overlay = document.getElementById('lightboxOverlay');
@@ -153,13 +154,12 @@
             function closeLightbox() {
                 overlay.classList.remove('active');
                 document.body.classList.remove('lightbox-open');
-                setTimeout(() => { lbImg.src = ''; }, 300); // Clear after fade out
+                setTimeout(() => { lbImg.src = ''; }, 300);
             }
 
             function prevItem() { currentIndex = (currentIndex - 1 + lightboxItems.length) % lightboxItems.length; showLightboxItem(); }
             function nextItem() { currentIndex = (currentIndex + 1) % lightboxItems.length; showLightboxItem(); }
 
-            // Event Delegation for dynamic items
             document.addEventListener('click', function (e) {
                 var item = e.target.closest('.gallery-item');
                 if (item && item.hasAttribute('data-index')) {

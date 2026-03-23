@@ -131,7 +131,7 @@
                     </div>
                 </div>
 
-                <%-- School (Pamantasan ng Cabuyao) Tab Content --%>
+                <%-- School Tab Content --%>
                 <div class="tab-pane fade" id="school" role="tabpanel" aria-labelledby="school-tab" tabindex="0">
                     <h5 class="fw-bold text-center mt-4 mb-3">Pamantasan ng Cabuyao</h5>
                     <div class="table-responsive">
@@ -165,7 +165,7 @@
             <asp:UpdatePanel ID="upMessage" runat="server">
                 <ContentTemplate>
                     
-                    <%-- Modern Alert Panel --%>
+                    <%-- Alert Panel --%>
                     <asp:Panel ID="pnlAlert" runat="server" Visible="false" role="alert">
                         <asp:Label ID="lblAlertMessage" runat="server"></asp:Label>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -208,8 +208,8 @@
             </asp:UpdatePanel>
         </section>
     </main>
-
-    <%-- Embedded JavaScript --%>
+    
+    <%--Handle the enabling/disabling of the send message button--%>
     <script type="text/javascript">
 
         function pageLoad() {
@@ -217,10 +217,8 @@
             const termCheck = document.getElementById('<%= chkTerms.ClientID %>');
 
             if (sendBtn && termCheck) {
-                // Set initial state
                 sendBtn.disabled = !termCheck.checked;
 
-                // Remove existing listener to prevent duplicates after partial reload, then add it
                 termCheck.removeEventListener('change', toggleButton);
                 termCheck.addEventListener('change', toggleButton);
 

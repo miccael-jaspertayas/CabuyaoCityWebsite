@@ -78,7 +78,7 @@
                         </li>
                     </ul>
 
-                    <%-- NEW: Admin Portal Button --%>
+                    <%-- Admin Portal Button --%>
                     <div class="nav-admin-wrapper ms-lg-4 mt-3 mt-lg-0 mb-2 mb-lg-0">
                         <a class="btn btn-admin text-uppercase fw-bold rounded-pill shadow-sm" runat="server" href="~/Pages/Admin/Login">
                             <i class="fas fa-lock me-2"></i>Admin
@@ -240,16 +240,15 @@
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
 
+    <%--Navbar scroll effect logic--%>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const navbar = document.getElementById("mainNavbar");
 
             window.addEventListener("scroll", function () {
-                // If the user scrolls down more than 125px, add the solid background
                 if (window.scrollY > 50) {
                     navbar.classList.add("navbar-scrolled");
                 } else {
-                    // Otherwise, remove it so it goes back to transparent
                     navbar.classList.remove("navbar-scrolled");
                 }
             });

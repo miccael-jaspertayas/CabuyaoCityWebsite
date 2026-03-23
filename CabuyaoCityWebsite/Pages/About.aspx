@@ -292,7 +292,6 @@
                             <div class="col">
                                 <div class="card h-100 text-center shadow-sm hover-card">
                                     <div class="card-body">
-                                        <%-- Assuming department logos are stored here. Adjust path if needed. --%>
                                         <img src='<%# ResolveUrl("~/Images/About/Department/" + Eval("LogoFileName")) %>' 
                                              alt='<%# Eval("DepartmentName") %> Logo' 
                                              class="rounded-circle mb-3 border border-2 img-fluid" 

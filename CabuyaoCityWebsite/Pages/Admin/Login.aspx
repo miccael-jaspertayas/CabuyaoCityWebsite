@@ -18,12 +18,11 @@
             <div class="login-card shadow-lg p-4 rounded-3">
                 
                 <div class="text-center mb-4">
-                    <%-- Placeholder for your minimalist logo --%>
                     <h2 class="fw-bold login-title">ADMIN PANEL</h2>
                     <p class="text-muted small">City of Cabuyao Website Management</p>
                 </div>
 
-                <%-- Modern Alert Panel --%>
+                <%-- Alert Panel --%>
                 <asp:Panel ID="pnlAlert" runat="server" Visible="false" role="alert">
                     <asp:Label ID="lblAlertMessage" runat="server"></asp:Label>
                 </asp:Panel>

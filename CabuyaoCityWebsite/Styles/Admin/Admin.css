@@ -20,12 +20,10 @@
     letter-spacing: 1.5px;
 }
 
-/* Sidebar Layout Settings */
 .admin-sidebar {
     width: 280px;
 }
 
-    /* Sidebar Hover & Active states */
     .admin-sidebar .nav-link {
         border-radius: 6px;
         padding: 10px 15px;
@@ -37,14 +35,12 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
 
-        /* Add an active class style for the code-behind to use later */
         .admin-sidebar .nav-link.active {
             background-color: var(--cabuyao-gold) !important;
             color: var(--cabuyao-green-dark) !important;
             font-weight: bold;
         }
 
-/* Main Content Alignment for Desktop */
 @media (min-width: 992px) {
     .admin-sidebar {
         position: fixed;
@@ -60,7 +56,7 @@
     }
 }
 
-/* Card UI Upgrades */
+/* Card Style */
 .admin-card {
     border: none;
     border-radius: 8px;

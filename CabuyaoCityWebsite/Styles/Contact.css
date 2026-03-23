@@ -20,7 +20,6 @@
     border-radius: 4px;
 }
 
-/* Directory Tabs Styling */
 .directory-tabs .nav-link {
     border: solid 2px var(--cabuyao-green, #107c41);
     color: var(--cabuyao-green, #107c41);

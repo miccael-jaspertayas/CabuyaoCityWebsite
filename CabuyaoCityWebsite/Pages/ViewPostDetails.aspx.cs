@@ -23,12 +23,12 @@ namespace CabuyaoCityWebsite.Pages
             }
         }
 
+        // Fetches post details from the database based on the provided post ID
         private void FetchPostDetails(string id)
         {
             string connString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                // Using parameters to prevent SQL Injection
                 string query = "SELECT PostID, Title, Category, Content, ImageFileName, DateCreated FROM Post WHERE PostID = @PostID";
 
                 SqlCommand cmd = new SqlCommand(query, conn);

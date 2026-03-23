@@ -12,13 +12,14 @@ namespace CabuyaoCityWebsite.Pages.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Optional: Redirect if already logged in
+            // Redirect if already logged in
             if (Session["AdminUser"] != null)
             {
                 Response.Redirect("Dashboard.aspx");
             }
         }
 
+        // Event handler for login button click
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();
@@ -43,6 +44,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             }
         }
 
+        // Method to get AdminID based on username
         private int GetAdminID(string username)
         {
             int adminID = -1;
@@ -61,6 +63,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             return adminID;
         }
 
+        // Method to authenticate admin credentials
         private bool AuthenticateAdmin(string user, string pass)
         {
             bool isValid = false;
@@ -78,6 +81,7 @@ namespace CabuyaoCityWebsite.Pages.Admin
             return isValid;
         }
 
+        // Method to display alert messages
         private void ShowAlert(string message, string type)
         {
             pnlAlert.Visible = true;

@@ -15,7 +15,7 @@ namespace CabuyaoCityWebsite.Pages
     {
         string connStr = ConfigurationManager.ConnectionStrings["connString"].ConnectionString;
 
-        // Cache the local departments at the class level so we only hit the database once
+        // Variable to hold local departments for filtering in ItemDataBound
         private DataTable dtLocalDepartments;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -27,19 +27,17 @@ namespace CabuyaoCityWebsite.Pages
             }
         }
 
-        // -- LOAD DEPARTMENT TABLE --
+        // This method loads all departments and binds them to the respective repeaters. It also prepares the local departments for dynamic subgrouping.
         private void LoadDepartments()
         {
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
 
-                // 1. Load Local Departments (Dynamic Subgroups)
                 SqlDataAdapter daLocal = new SqlDataAdapter("SELECT * FROM Department WHERE Category='Local' ORDER BY SubGroup, DepartmentName", conn);
                 dtLocalDepartments = new DataTable();
                 daLocal.Fill(dtLocalDepartments);
 
-                // Use LINQ to get distinct SubGroups dynamically from the DataTable
                 var subGroups = dtLocalDepartments.AsEnumerable()
                                       .Select(row => row.Field<string>("SubGroup"))
                                       .Distinct()
@@ -49,14 +47,12 @@ namespace CabuyaoCityWebsite.Pages
                 rptLocalGroups.DataSource = subGroups;
                 rptLocalGroups.DataBind();
 
-                // 2. Load National Agencies
                 SqlDataAdapter daNational = new SqlDataAdapter("SELECT * FROM Department WHERE Category='National'", conn);
                 DataTable dtNational = new DataTable();
                 daNational.Fill(dtNational);
                 rptNational.DataSource = dtNational;
                 rptNational.DataBind();
 
-                // 3. Load Schools
                 SqlDataAdapter daSchool = new SqlDataAdapter("SELECT * FROM Department WHERE Category='School'", conn);
                 DataTable dtSchool = new DataTable();
                 daSchool.Fill(dtSchool);
@@ -65,14 +61,13 @@ namespace CabuyaoCityWebsite.Pages
             }
         }
 
-        // -- BIND INNER REPEATER FOR LOCAL SUBGROUPS --
+        // This method handles the ItemDataBound event for the local groups repeater.
         protected void rptLocalGroups_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 string subGroup = DataBinder.Eval(e.Item.DataItem, "SubGroup").ToString();
 
-                // Filter the pre-loaded DataTable for the current subgroup
                 DataView view = new DataView(dtLocalDepartments);
                 view.RowFilter = $"SubGroup = '{subGroup.Replace("'", "''")}'";
 
@@ -82,7 +77,7 @@ namespace CabuyaoCityWebsite.Pages
             }
         }
 
-        // -- LOAD BARANGAY TABLE --
+        // This method loads all barangays and binds them to the barangay repeater.
         private void LoadBarangays()
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -96,7 +91,7 @@ namespace CabuyaoCityWebsite.Pages
             }
         }
 
-        // -- SUBMIT MESSAGE INTO MESSAGE TABLE --
+        // This method handles the send message button and inserts the message into the database.
         protected void btnSendMessage_Click(object sender, EventArgs e)
         {
             // LEADING/TRAILING WHITESPACE REMOVAL
@@ -146,12 +141,12 @@ namespace CabuyaoCityWebsite.Pages
             txtYourEmail.Text = "";
             txtYourNumber.Text = "";
             txtMessage.Text = "";
-            chkTerms.Checked = false; // Reset checkbox
+            chkTerms.Checked = false;
 
             ShowAlert("Your message has been sent successfully!", "success");
         }
 
-        // -- HELPER: SHOW MODERN ALERTS --
+        // This method shows an alert message on the page with the specified type.
         private void ShowAlert(string message, string type)
         {
             pnlAlert.Visible = true;
